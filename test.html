@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket Animation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js" rel="stylesheet">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero {
+            background-color: #1e1e1e;
+            color: white;
+        }
+
+        .next-section {
+            background-color: #f4f4f4;
+        }
+
+        .rocket {
+            width: 100px;
+            transition: transform 1s ease;
+        }
+
+        .fire {
+            position: absolute;
+            top: 90px;
+            left: 35px;
+            width: 30px;
+            height: 30px;
+            background-color: orange;
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero">
+        <div class="rocket-container">
+            <img class="rocket" src="assets/rocket-front-color.png" alt="rocket" id="rocket">
+            <div class="fire" id="fire"></div>
+        </div>
+        <h1>Click the Rocket!</h1>
+    </section>
+    <section class="next-section">
+        <h2>Next Section</h2>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script>
+        const rocket = document.getElementById('rocket');
+        const fire = document.getElementById('fire');
+
+        // Create fire animation with GSAP
+        function showFire() {
+            gsap.to(fire, { opacity: 1, duration: 0.2 });
+        }
+
+        function hideFire() {
+            gsap.to(fire, { opacity: 0, duration: 0.2 });
+        }
+
+        function animateRocket() {
+            gsap.to(rocket, { y: -200, duration: 2, ease: "power2.inOut", onStart: showFire, onComplete: scrollToNextSection });
+        }
+
+        // Scroll to next section
+        function scrollToNextSection() {
+            window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+        }
+
+        // Add click event to rocket
+        rocket.addEventListener('click', () => {
+            animateRocket();
+        });
+
+
+    </script>
+</body>
+
+</html>

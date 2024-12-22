@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Code AI Expert</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+
+
+</head>
+
+<body>
+    <!-- Header -->
+    <nav id="navbar" class="navbar w-100 navbar-expand-lg navbar-dark fixed-top py-3 container-fluid">
+        <div class="container d-flex justify-content-between">
+            <a class="navbar-brand" href="#">NO CODE AI EXPERT</a>
+            <button class="navbar-toggler" style="box-shadow: none!important;" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ps-4 justify-content-center text-center" id="navbarNavDropdown">
+                <ul class="navbar-nav gap-3 mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#works">Our Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact Us</a>
+                    </li>
+                </ul>
+                <button class="btn btn-primary mt-lg-0 mt-3" type="button">Get a Quote</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero bg-dark text-white flex-column d-flex justify-content-center">
+        <div class="container">
+            <div class="row h-100">
+                <div class="col-md-6 d-flex flex-column justify-content-center">
+                    <h1 class="display-2 fw-bold">Transform Your Ideas Into Impacts</h1>
+                    <p class="fs-4">Build Something New</p>
+                    <div>
+                        <button class="btn btn-primary mt-4">Book a Call</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img class="decoration decoration-4" src="assets/rocket-front-color.png" alt="rocket" id="rocket">
+    </div>
+
+    <!-- Process Section -->
+    <section class="process-section">
+
+        <div class="container">
+            <div class="text-center">
+                <span class="section-tag">Our Services</span>
+                <h2 class="section-title text-center">Three Step Process</h2>
+            </div>
+            <div class="row pt-3">
+                <div class="col-md-4 d-flex">
+                    <div class="step-container" style="--step-index: 0">
+                        <div class="step-line"></div>
+                        <div class="step-point-wrapper">
+                            <div class="step-point">1</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-number">Step 1</div>
+                            <h3 class="step-title">Strategic Vision</h3>
+                            <p class="step-description">Shaping a future of endless possibilities through strategic
+                                thinking and visionary leadership.</p>
+                            <div class="shine-effect"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex">
+                    <div class="step-container" style="--step-index: 1">
+                        <div class="step-line"></div>
+                        <div class="step-point-wrapper">
+                            <div class="step-point">2</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-number">Step 2</div>
+                            <h3 class="step-title">Collaborative Synergy</h3>
+                            <p class="step-description">We work closely with you, turning your ideas into reality
+                                with
+                                our
+                                expertise and your vision combined.</p>
+                            <div class="shine-effect"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex">
+                    <div class="step-container" style="--step-index: 2">
+                        <div class="step-point-wrapper">
+                            <div class="step-point">3</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-number">Step 3</div>
+                            <h3 class="step-title">Seamless Execution</h3>
+                            <p class="step-description">From start to finish, we handle every detail, delivering a
+                                smooth,
+                                high-quality result that meets your goals.</p>
+                            <div class="shine-effect"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section bg-dark">
+        <div class="container">
+            <img class="decoration decoration-3" src="assets/sphere-front-gradient.png" alt="sphere-front-gradient">
+            <div class="row justify-content-center">
+                <div class="about-heading">
+                    <div class="section-tag">About Us</div>
+                    <h1 class="section-title">Crafting Websites with Precision</h1>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mb-5">
+                        <p class="about-description">
+                            We are a team of passionate web developers dedicated to crafting innovative,
+                            user-friendly
+                            websites tailored to your unique needs. Our mission is to transform ideas into digital
+                            experiences that inspire, engage, and deliver results. With expertise in modern
+                            technologies
+                            and
+                            a commitment to quality, we help businesses build their online presence and achieve
+                            their
+                            goals.
+                        </p>
+                    </div>
+                    <div class="row row-gap-4">
+                        <div class="col-md-6">
+                            <div class="feature-card">
+                                <h3 class="feature-title">
+                                    <div class="feature-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff6b00"
+                                            stroke-width="2">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line x1="12" y1="8" x2="12" y2="16" />
+                                            <line x1="8" y1="12" x2="16" y2="12" />
+                                        </svg>
+                                    </div>Best Performance
+                                </h3>
+                                <p class="feature-text">Built with best practices and optimization techniques for
+                                    maximum
+                                    speed and efficiency.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-card">
+                                <h3 class="feature-title">
+
+                                    <div class="feature-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff6b00"
+                                            stroke-width="2">
+                                            <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            <path d="M15 9l-6 6M9 9l6 6" />
+                                        </svg>
+                                    </div>
+                                    Super Support
+                                </h3>
+                                <p class="feature-text">24/7 dedicated support team ready to assist you with any
+                                    questions
+                                    or issues.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-card">
+                                <h3 class="feature-title">
+                                    <div class="feature-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff6b00"
+                                            stroke-width="2">
+                                            <polygon points="12 2 2 7 12 12 22 7" />
+                                            <polyline points="2 17 12 22 22 17" />
+                                            <polyline points="2 12 12 17 22 12" />
+                                        </svg>
+                                    </div>Custom Solutions
+                                </h3>
+                                <p class="feature-text">Tailored development solutions that match your specific
+                                    business
+                                    requirements.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-card">
+                                <h3 class="feature-title">
+                                    <div class="feature-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff6b00"
+                                            stroke-width="2">
+                                            <path d="M12 19l7-7 3 3-7 7-3-3z" />
+                                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+                                            <path d="M2 2l7.586 7.586" />
+                                            <circle cx="11" cy="11" r="2" />
+                                        </svg>
+                                    </div>Modern Design
+                                </h3>
+                                <p class="feature-text">Contemporary designs that engage users and enhance brand
+                                    presence.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex justify-content-center h-100">
+                    <img src="assets/about-us.png" alt="About Us" class="img-fluid w-75">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-container bg-dark">
+        <div class="container">
+            <!-- Enhanced 3D Decorative SVGs -->
+            <svg class="decoration decoration-1" width="300" height="300" viewBox="0 0 300 300">
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#f97316;stop-opacity:0.3" />
+                        <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.1" />
+                    </linearGradient>
+                </defs>
+                <g>
+                    <circle cx="150" cy="150" r="100" fill="none" stroke="url(#grad1)" stroke-width="4" />
+                    <circle cx="150" cy="150" r="70" fill="none" stroke="url(#grad1)" stroke-width="4" />
+                    <circle cx="150" cy="150" r="40" fill="none" stroke="url(#grad1)" stroke-width="4" />
+                </g>
+            </svg>
+
+            <svg class="decoration decoration-2" width="400" height="400" viewBox="0 0 400 400">
+                <defs>
+                    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.3" />
+                        <stop offset="100%" style="stop-color:#f97316;stop-opacity:0.1" />
+                    </linearGradient>
+                </defs>
+                <g>
+                    <path d="M200,50 L350,200 L200,350 L50,200 Z" fill="none" stroke="url(#grad2)" stroke-width="4" />
+                    <path d="M200,100 L300,200 L200,300 L100,200 Z" fill="none" stroke="url(#grad2)" stroke-width="4" />
+                </g>
+            </svg>
+
+            <div class="services-content">
+                <div class="services-header">
+                    <span class="section-tag">Our Services</span>
+                    <h2 class="section-title">What We Offer</h2>
+                    <p class="services-subtitle">
+                        We specialize in designing and developing high-quality websites and digital solutions
+                        that are tailored to meet your unique business needs.
+                    </p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon-wrapper">
+                            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" />
+                                <path d="M12 3v18" />
+                                <path d="M3 12h18" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Web Development</h3>
+                        <p class="service-description">
+                            Creating responsive, high-performance websites with modern technologies and best practices.
+                        </p>
+                        <a href="#" class="service-link">
+                            Learn More
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon-wrapper">
+                            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 4L9 15l-5-5" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Digital Solutions</h3>
+                        <p class="service-description">
+                            Building custom digital solutions that streamline your business operations and enhance
+                            productivity.
+                        </p>
+                        <a href="#" class="service-link">
+                            Learn More
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon-wrapper">
+                            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 2v6m0 14v-6M4.93 4.93l4.24 4.24m5.66 5.66l4.24 4.24M2 12h6m14 0h-6" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Innovation Strategy</h3>
+                        <p class="service-description">
+                            Developing forward-thinking strategies to keep your business ahead of digital trends.
+                        </p>
+                        <a href="#" class="service-link">
+                            Learn More
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
