@@ -2,19 +2,19 @@ gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 // Header animations
 const headerTimeline = gsap.timeline();
 headerTimeline
-    .from('.services-tag', {
+    .from('.section-tag', {
         opacity: 0,
         y: -30,
         duration: 1,
         ease: 'power3.out'
     })
-    .from('.services-title', {
+    .from('.section-title', {
         opacity: 0,
         y: -40,
         duration: 1,
         ease: 'power3.out'
     }, '-=0.5')
-    .from('.services-subtitle', {
+    .from('.section-subtitle', {
         opacity: 0,
         y: -30,
         duration: 1,
@@ -26,12 +26,12 @@ gsap.utils.toArray('.decoration').forEach(decoration => {
     gsap.to(decoration, {
         scrollTrigger: {
             trigger: '.services-container',
-            start: 'top top',
-            end: 'bottom top',
+            start: '-=200',
+            end: 'bottom bottom',
             scrub: 1.5
         },
-        y: (i, target) => (target.classList.contains('decoration-1') ? 900 :
-            target.classList.contains('decoration-2') ? -800 : 100),
+        y: (i, target) => (target.classList.contains('decoration-1') ? 200 :
+            target.classList.contains('decoration-2') ? -200 : 100),
         rotate: (i, target) => (target.classList.contains('decoration-1') ? 180 :
             target.classList.contains('decoration-2') ? -180 : 30),
         ease: 'none'
@@ -39,7 +39,7 @@ gsap.utils.toArray('.decoration').forEach(decoration => {
 });
 
 // Service cards animation
-gsap.utils.toArray('.service-card').forEach((card, i) => {
+gsap.utils.toArray('.service-card , .work-card').forEach((card, i) => {
     gsap.from(card, {
         scrollTrigger: {
             trigger: card,
@@ -56,7 +56,7 @@ gsap.utils.toArray('.service-card').forEach((card, i) => {
 });
 
 // 3D hover effect for cards
-document.querySelectorAll('.service-card').forEach(card => {
+document.querySelectorAll('.service-card, .work-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -83,31 +83,28 @@ document.querySelectorAll('.service-card').forEach(card => {
     });
 });
 
-gsap.to('.decoration-4', {
-    scrollTrigger: {
-        trigger: 'body',
-        start: 'top top',
-        end: '500vh',
-        scrub: 1.5,
-    },
-    motionPath: {
-        path: path,
-        curviness: 2,
-        autoRotate: true,
-        alignOrigin: [0.5, 0.5]
-    },
-    ease: "power1.inOut",
-    duration: 100,
-    rotation: "+=720",
-    opacity: 1
-});
-
-
+// gsap.to('.decoration-4', {
+//     scrollTrigger: {
+//         trigger: 'body',
+//         start: 'top top',
+//         end: '500vh',
+//         scrub: 1.5,
+//     },
+//     motionPath: {
+//         path: path,
+//         curviness: 2,
+//         autoRotate: true,
+//         alignOrigin: [0.5, 0.5]
+//     },
+//     ease: "power1.inOut",
+//     duration: 100,
+//     rotation: "+=720",
+//     opacity: 1
+// });
 
 
 // Rocket Animation
 const rocket = document.getElementById('rocket');
-const fire = document.getElementById('fire');
 let lastScrollTop = 0;
 
 function animateRocketUp() {
@@ -140,7 +137,7 @@ window.addEventListener('scroll', () => {
 let shakeTween;
 
 const shakeRocket = () => {
-    gsap.set(rocket, { x: -2, rotation: -2 });
+    gsap.set(rocket, { x: "-=2", rotation: "-=2" });
     shakeTween = gsap.to(rocket, {
         x: "+=2",
         rotation: "+=2",
@@ -161,5 +158,108 @@ const stopShake = () => {
 rocket.addEventListener('mouseenter', shakeRocket);
 rocket.addEventListener('mouseleave', stopShake);
 
+// Tools Starts
+gsap.to(".tool-item", {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    stagger: {
+        amount: 1,
+        grid: "auto",
+        from: "start"
+    },
+    ease: "power3.out"
+});
+
+// More tools text animation
+gsap.to(".more-tools", {
+    opacity: 1,
+    duration: 1,
+    delay: 1.5,
+    ease: "power3.out"
+});
+
+// Hover animations for tool circles
+document.querySelectorAll('.tool-circle').forEach(circle => {
+    circle.addEventListener('mouseenter', () => {
+        gsap.to(circle, {
+            scale: 1.05,
+            duration: 0.3,
+            ease: "power2.out"
+        });
+    });
+
+    circle.addEventListener('mouseleave', () => {
+        gsap.to(circle, {
+            scale: 1,
+            duration: 0.3,
+            ease: "power2.out"
+        });
+    });
+});
+// Tools Ends
 
 
+// // Scene, Camera, Renderer
+// const scene = new THREE.Scene();
+// const camera = new THREE.PerspectiveCamera(
+//     45,
+//     window.innerWidth / window.innerHeight,
+//     0.1,
+//     200
+// );
+// camera.position.set(-4, 3, 6);
+
+// const renderer = new THREE.WebGLRenderer({ antialias: true });
+// renderer.setSize(window.innerWidth, window.innerHeight);
+// renderer.shadowMap.enabled = true;
+// document.body.appendChild(renderer.domElement);
+
+// // Lighting
+// const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+// scene.add(ambientLight);
+
+// const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+// directionalLight.position.set(5, 5, 5);
+// directionalLight.castShadow = true;
+// scene.add(directionalLight);
+
+// // GLTF Loader
+// const loader = new THREE.GLTFLoader();
+// loader.load(
+//     "/assets/planet/scene.gltf",
+//     (gltf) => {
+//         const earth = gltf.scene;
+//         earth.scale.set(2.5, 2.5, 2.5);
+//         earth.position.set(0, 0, 0);
+//         scene.add(earth);
+//     },
+//     undefined,
+//     (error) => {
+//         console.error("Error loading GLTF model:", error);
+//     }
+// );
+
+// // Orbit Controls
+// const controls = new THREE.OrbitControls(camera, renderer.domElement);
+// controls.enableZoom = false;
+// controls.autoRotate = true;
+// controls.autoRotateSpeed = 1;
+// controls.maxPolarAngle = Math.PI / 2;
+// controls.minPolarAngle = Math.PI / 2;
+
+// // Animation Loop
+// function animate() {
+//     requestAnimationFrame(animate);
+//     controls.update();
+//     renderer.render(scene, camera);
+// }
+
+// animate();
+
+// // Responsive Design
+// window.addEventListener("resize", () => {
+//     camera.aspect = window.innerWidth / window.innerHeight;
+//     camera.updateProjectionMatrix();
+//     renderer.setSize(window.innerWidth, window.innerHeight);
+// });

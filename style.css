@@ -8,6 +8,8 @@ html {
     overflow-x: hidden;
 }
 
+
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
     width: 6px;
@@ -43,8 +45,12 @@ body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    color: white;
+    color: rgba(255, 255, 255, 0.95);
     user-select: none;
+}
+
+h1 {
+    color: rgba(255, 255, 255, 0.95) !important;
 }
 
 .text-orange {
@@ -54,6 +60,8 @@ body {
 /* Section */
 section {
     padding: 5rem 0;
+    min-height: 100vh;
+    perspective: 1000px;
 }
 
 .section-tag {
@@ -83,12 +91,35 @@ section {
     animation: gradientAnimation 4s ease-in-out infinite;
 }
 
+.section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    position: relative;
+}
+
+.section-subtitle {
+    color: #94a3b8;
+    font-size: 1.25rem;
+    line-height: 1.7;
+}
+
+.card-title {
+    color: white !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    transform: translateZ(15px);
+    margin-bottom: 1rem !important;
+}
+
 .navbar {
     background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(20px);
 }
-
-
 
 /* Buttons Start */
 .btn {
@@ -261,6 +292,7 @@ section {
     width: fit-content;
     padding: 2px 15px;
     border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .step-title {
@@ -507,12 +539,6 @@ section {
 /* About Us Ends */
 
 /* Services Starts */
-.services-container {
-    min-height: 100vh;
-    position: relative;
-    perspective: 1000px;
-}
-
 .decoration {
     position: absolute;
     pointer-events: none;
@@ -537,7 +563,6 @@ section {
     width: 130px;
     top: 63%;
     left: 23%;
-    transform: translate(-23%, -63%);
     opacity: 0.6;
 }
 
@@ -547,6 +572,8 @@ section {
     width: 40px;
     pointer-events: auto;
     cursor: pointer;
+    position: absolute;
+    filter: drop-shadow(0 0 20px rgba(249, 115, 22, 0.2));
 }
 
 .services-content {
@@ -554,19 +581,6 @@ section {
     z-index: 10;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.services-header {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 6rem auto;
-    position: relative;
-}
-
-.services-subtitle {
-    color: #94a3b8;
-    font-size: 1.25rem;
-    line-height: 1.7;
 }
 
 .services-grid {
@@ -614,7 +628,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     transform: translateZ(20px);
 }
 
@@ -624,13 +638,7 @@ section {
     color: white;
 }
 
-.service-title {
-    color: white;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-    transform: translateZ(15px);
-}
+
 
 .service-description {
     color: #94a3b8;
@@ -677,3 +685,178 @@ section {
 }
 
 /* Services Ends */
+
+/* Our Works Starts*/
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    padding: 0 1rem;
+}
+
+.work-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 1.5rem;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.work-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg,
+            rgba(249, 115, 22, 0.1),
+            rgba(255, 255, 255, 0.03));
+    border-radius: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.work-card:hover::before {
+    opacity: 0.4;
+}
+
+.work-image {
+    width: 100%;
+    height: 200px;
+    background: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.work-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.work-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #ff6b2b;
+}
+
+.work-description {
+    color: #888;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+/* Our Works Ends*/
+
+
+/* Tools Starts */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+    max-width: 900px;
+    margin: auto auto;
+    margin-bottom: 3rem;
+    place-items: center;
+}
+
+.tool-item {
+    opacity: 0;
+    transform: translateY(20px);
+    place-items: center;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.tool-image {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: fill;
+}
+
+.tool-circle {
+    border-radius: 50%;
+    background: #222;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.tool-circle::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid white;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.tool-circle:hover {
+    transform: translateY(-5px);
+}
+
+.tool-circle:hover::after {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.tool-name {
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 0.5rem;
+}
+
+.more-tools {
+    color: #888;
+    font-size: 1.1rem;
+    opacity: 0;
+    text-align: center;
+}
+
+.more-count {
+    color: #ff5714;
+    font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+    .tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tools Ends */
