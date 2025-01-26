@@ -22,21 +22,25 @@ headerTimeline
     }, '-=0.5');
 
 // Decorative elements parallax
-gsap.utils.toArray('.decoration').forEach(decoration => {
+// Animate decoration-3 elements with GSAP
+gsap.utils.toArray('.decoration.decoration-3').forEach((decoration) => {
     gsap.to(decoration, {
         scrollTrigger: {
-            trigger: '.services-container',
+            trigger: '.about-section',
             start: '-=200',
             end: 'bottom bottom',
-            scrub: 1.5
+            scrub: 1.5,
+            markers: false,  // Set to true if you want to see debug markers for the start/end points
+            toggleActions: 'play none none reverse',  // This controls what happens on scroll
         },
-        y: (i, target) => (target.classList.contains('decoration-1') ? 200 :
-            target.classList.contains('decoration-2') ? -200 : 100),
-        rotate: (i, target) => (target.classList.contains('decoration-1') ? 180 :
-            target.classList.contains('decoration-2') ? -180 : 30),
-        ease: 'none'
+        y: 50,
+        ease: 'power1.inOut',
+        duration: 1,  // You can control the speed/duration of the animation
     });
 });
+
+
+
 
 // Service cards animation
 gsap.utils.toArray('.service-card , .work-card').forEach((card, i) => {
@@ -50,7 +54,7 @@ gsap.utils.toArray('.service-card , .work-card').forEach((card, i) => {
         y: 50,
         rotateX: 15,
         duration: 1,
-        delay: i * 0.2,
+        delay: i * 0.1,
         ease: 'power3.out'
     });
 });
@@ -263,3 +267,45 @@ document.querySelectorAll('.tool-circle').forEach(circle => {
 //     camera.updateProjectionMatrix();
 //     renderer.setSize(window.innerWidth, window.innerHeight);
 // });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.querySelector(".blur-container");
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add("navbar-scroll");
+        } else {
+            navbar.classList.remove("navbar-scroll");
+        }
+    });
+});
+
+
+$(document).ready(function () {
+    var slider = $(".owl-carousel");
+    slider.owlCarousel({
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: false,
+        items: 1,
+        stagePadding: 30,
+        center: true,
+        nav: false,
+        margin: 30,
+        dots: true,
+        loop: true,
+        smartSpeed: 2000,
+        responsive: {
+            0: { items: 1 },
+            480: { items: 2 },
+            768: { items: 3 },
+            991: { items: 3 },
+            1200: { items: 4 }
+        },
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        lazyLoad: true,
+        mouseDrag: true,
+        touchDrag: true,
+        pullDrag: true,
+    });
+});
