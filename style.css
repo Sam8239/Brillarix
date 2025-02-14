@@ -45,7 +45,7 @@ body {
     font-size: 16px;
     color: white;
     user-select: none;
-    background-image: url('/assets/hero-bg.jpg');
+    background-image: url('assets/hero-bg.jpg');
     background-attachment: fixed;
     background-size: cover;
 }
@@ -345,7 +345,7 @@ section {
 /* Hero Starts */
 .hero {
     position: relative;
-    /* background-image: url('/assets/hero-bg.jpg'); */
+    /* background-image: url('assets/hero-bg.jpg'); */
     background-size: cover;
     background-position: 100% 100%;
     background-repeat: no-repeat;
