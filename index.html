@@ -17,19 +17,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#navbar" tabindex="0">
+<body data-bs-spy="scroll" data-bs-target="#navbar" tabindex="0" data-bs-theme="dark">
     <!-- Header -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top py-1 py-md-2 mt-1 container px-2">
         <div class="w-100 d-flex justify-content-center">
-            <div class="blur-container d-md-flex justify-content-between p-2 px-1">
+            <div class="blur-container d-lg-flex justify-content-between p-2 px-1">
                 <div class="nav-mobile d-flex justify-content-between">
-                    <a class="navbar-brand fs-4 fw-bold m-0 d-md-flex align-items-center ms-2" href="#">
-                        <img src="/assets/Brillarix-Dark-Mode.png" alt="Brillarix" class="logo">
+                    <a class="fs-4 fw-bold m-0 d-flex  align-items-center ms-2" href="#">
+                        <img src="/assets/Brillarix-Dark-Mode.avif" alt="Brillarix" class="logo">
                     </a>
                     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -58,10 +61,10 @@
                             <a class="nav-link" href="#contact">CONTACT US</a>
                         </li>
                     </ul>
-                    <a class="btn btn-nav px-4 mt-lg-0 mt-3 me-1 d-md-none" type="button">Get a
+                    <a class="btn btn-nav mobile px-4 mt-lg-0 my-2 d-lg-none" type="button">Get a
                         Quote</a>
                 </div>
-                <a class="btn px-4 btn-nav px-4 mt-lg-0 mt-3 me-1 d-none d-md-block" type="button">Get a
+                <a class="btn px-4 btn-nav px-4 mt-lg-0 mt-3 me-1 d-none d-lg-block" type="button">Get a
                     Quote
                 </a>
             </div>
@@ -71,17 +74,34 @@
     <!-- Hero -->
     <div id="home" class="hero text-white flex-column d-flex justify-content-center">
         <div class="container">
-            <div class="row h-100">
-                <div class="col-md-6 d-flex flex-column justify-content-center text-sm-center text-md-start">
-                    <h1 class="display-2 fw-bold">Where Brilliance Meets Excellence</h1>
-                    <p class="fs-4 text-secondary">Transform Your Ideas Into Reality with Brillarix</p>
+            <div class="hero-quote">
+                <div class="stars">★★★★★</div>
+                <div class="avatars">
+                    <img src="https://i.pravatar.cc/40?img=1" alt="User 1">
+                    <img src="https://i.pravatar.cc/40?img=2" alt="User 2">
+                    <img src="https://i.pravatar.cc/40?img=3" alt="User 3">
+                    <img src="https://i.pravatar.cc/40?img=4" alt="User 4">
+                </div>
+                <div class="text">Trusted by 1,000+ businesses worldwide</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <h1 class="display-2 fw-bold hero-heading">Where Brilliance<br>Meets Excellence</h1>
+                    <p class="fs-5 section-subtitle text-center text-lg-start">We specialize in custom software
+                        development, AI-driven
+                        solutions,
+                        and seamless integrations to help you stay ahead in the digital landscape.
+                    </p>
                     <div>
                         <a class="btn btn-secondary mt-4">Book a Call</a>
                     </div>
                 </div>
+                <div class="hero-img d-none d-lg-block">
+                    <img src="assets/Projects/Prompt-Vault.png" alt="Hero Image" class="img-fluid">
+                </div>
             </div>
         </div>
-        <div class="rocket-container d-none d-md-block">
+        <div class="rocket-container">
             <div class="hover-text">READY TO LAUNCH?</div>
             <img class="decoration-4 " src="assets/rocket-front-color.png" alt="rocket" id="rocket">
         </div>
@@ -101,7 +121,7 @@
                         <div class="step-point-wrapper">
                             <div class="step-point">1</div>
                         </div>
-                        <div class="step-content">
+                        <div class="step-content ">
                             <div class="step-number">Step 1</div>
                             <h3 class="step-title">Strategic Vision</h3>
                             <p class="step-description">Shaping a future of endless possibilities through strategic
@@ -149,24 +169,26 @@
     <!-- About Us -->
     <section id="about" class="about-section">
         <div class="container">
-            <img class="decoration decoration-3" src="assets/sphere-front-gradient.png" alt="sphere-front-gradient">
+            <img class="decoration decoration-3 d-none d-lg-block" src="assets/sphere-front-gradient.png"
+                alt="sphere-front-gradient">
             <div class="row justify-content-center">
                 <div class="about-heading">
                     <div class="section-tag">About Us</div>
                     <h1 class="section-title">Crafting Websites with Precision</h1>
                 </div>
+                <div class="col-md-6 d-flex justify-content-center align-items-center d-none d-lg-flex">
+                    <div class="about-vid">
+                        <video src="assets/Projects/VC.mp4" alt="Hero Video" class="img-fluid" autoplay loop muted>
+                        </video>
+                    </div>
+                </div>
                 <div class="col-lg-6">
                     <div class="mb-5">
-                        <p class="about-description">
+                        <p class="section-subtitle">
                             We are a team of passionate web developers dedicated to crafting innovative,
                             user-friendly
                             websites tailored to your unique needs. Our mission is to transform ideas into digital
-                            experiences that inspire, engage, and deliver results. With expertise in modern
-                            technologies
-                            and
-                            a commitment to quality, we help businesses build their online presence and achieve
-                            their
-                            goals.
+                            experiences that inspire, engage, and deliver results.
                         </p>
                     </div>
                     <div class="row row-gap-4">
@@ -242,11 +264,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 d-flex justify-content-center h-100 mt-5">
-                    <img src="assets/about-us.png" alt="About Us" class="img-fluid w-75">
-                </div>
             </div>
-        </div>
     </section>
 
     <!-- Services -->
@@ -331,67 +349,7 @@
         </div>
     </section>
 
-    <!-- Our Works -->
-    <section id="works" class="works-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Our Works</span>
-                <h2 class="section-title mb-2">Where Creativity Meets Code</h2>
-                <p class="section-subtitle">
-                    Our projects showcase innovative designs, seamless user experiences, and reliable functionalities
-                    that
-                    deliver
-                    impactful results.
-                </p>
-            </div>
-
-            <div class="works-grid">
-                <div class="work-card">
-                    <div class="work-image">Project Image</div>
-                    <div class="work-content">
-                        <div>
-                            <h3 class="card-title">Digital Experience Platform</h3>
-                            <p class="work-description">A platform delivering personalized digital
-                                experiences
-                                with modern
-                                interface and robust features.</p>
-                        </div>
-                        <a href="#" class="btn btn-primary py-1">View Project</a>
-
-                    </div>
-                </div>
-
-                <div class="work-card">
-                    <div class="work-image">Project Image</div>
-                    <div class="work-content">
-                        <div>
-                            <h3 class=" card-title">E-Commerce Solution</h3>
-                            <p class="work-description">Custom e-commerce platform with advanced analytics and seamless
-                                payment
-                                integration.</p>
-                        </div>
-                        <a href="#" class="btn btn-primary py-1">View Project</a>
-                    </div>
-
-                </div>
-
-                <div class="work-card">
-                    <div class="work-image">Project Image</div>
-                    <div class="work-content">
-                        <div>
-                            <h3 class="card-title">Mobile App Development</h3>
-                            <p class="work-description">Cross-platform mobile application with real-time synchronization
-                                and
-                                offline
-                                capabilities.</p>
-                        </div>
-                        <a href="#" class="btn btn-primary py-1">View Project</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- Tools -->
     <section class="tools-section">
         <div class="container">
             <div class="section-header">
@@ -408,22 +366,33 @@
             <div class="tools-grid">
                 <div class="tool-item">
                     <div class="tool-circle">
-                        <div class="tool-image"><img src="assets/Tools/Zapier.png" alt="" width="100%"></div>
+                        <div class="tool-image"><img src="assets/Tools/Bubble.png" alt="" width="100%"></div>
                     </div>
-                    <div class="tool-name">Zapier</div>
-
+                    <div class="tool-name">Bubble</div>
                 </div>
                 <div class="tool-item">
                     <div class="tool-circle">
-                        <div class="tool-image"><img src="assets/Tools/Snowflake.png" alt="" width="100%"></div>
+                        <div class="tool-image"><img src="assets/Tools/FlutterFlow.png" alt="" width="100%"></div>
                     </div>
-                    <div class="tool-name">Snowflake</div>
+                    <div class="tool-name">FlutterFlow</div>
                 </div>
                 <div class="tool-item">
                     <div class="tool-circle">
                         <div class="tool-image"><img src="assets/Tools/Chatgpt.png" alt="" width="100%"></div>
                     </div>
                     <div class="tool-name">Open AI</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-circle">
+                        <div class="tool-image"><img src="assets/Tools/Stripe.png" alt="" width="100%"></div>
+                    </div>
+                    <div class="tool-name">Stripe</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-circle">
+                        <div class="tool-image"><img src="assets/Tools/Zapier.png" alt="" width="100%"></div>
+                    </div>
+                    <div class="tool-name">Zapier</div>
                 </div>
                 <div class="tool-item">
                     <div class="tool-circle">
@@ -439,9 +408,9 @@
                 </div>
                 <div class="tool-item">
                     <div class="tool-circle">
-                        <div class="tool-image"><img src="assets/Tools/Stripe.png" alt="" width="100%"></div>
+                        <div class="tool-image"><img src="assets/Tools/Snowflake.png" alt="" width="100%"></div>
                     </div>
-                    <div class="tool-name">Stripe</div>
+                    <div class="tool-name">Snowflake</div>
                 </div>
                 <div class="tool-item">
                     <div class="tool-circle">
@@ -455,6 +424,7 @@
                     </div>
                     <div class="tool-name">Xano</div>
                 </div>
+
             </div>
 
             <p class="more-tools">And <span class="more-count">+20</span> more specialized services tailored to your
@@ -463,8 +433,114 @@
         </div>
     </section>
 
+    <!-- Our Works -->
+    <section id="works" class="works-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Works</span>
+                <h2 class="section-title mb-2">Where Creativity Meets Code</h2>
+                <p class="section-subtitle">
+                    Our projects showcase innovative designs, seamless user experiences, and reliable functionalities
+                    that
+                    deliver impactful results.
+                </p>
+            </div>
+
+            <div class="owl-carousel owl-theme works-carousel">
+                <div class="owl-item">
+                    <div class="work-card">
+                        <div class="work-vid">
+                            <video src="assets/Projects/VC.mp4" alt="Hero Video" class="img-fluid" autoplay loop
+                                muted></video>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="card-title">Mobile App Development</h3>
+                            <p class="work-description">A platform delivering personalized digital experiences with
+                                modern interface</p>
+                            <a class="btn btn-nav py-1">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="owl-item">
+                    <div class="work-card">
+                        <div class="work-vid">
+                            <video src="assets/Projects/VC.mp4" alt="Hero Video" class="img-fluid" loop muted></video>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="card-title">E-Commerce Solution</h3>
+                            <p class="work-description">Custom e-commerce platform with advanced analytics and seamless
+                                payment
+                                integration.</p>
+                            <a class="btn btn-nav py-1">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="owl-item">
+                    <div class="work-card">
+                        <div class="work-vid">
+                            <video src="assets/Projects/VC.mp4" alt="Hero Video" class="img-fluid" loop muted></video>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="card-title">Mobile App Development</h3>
+                            <p class="work-description">Cross-platform mobile application with real-time synchronization
+                                and offline
+                                capabilities.</p>
+                            <a class="btn btn-nav py-1">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="owl-item">
+                    <div class="work-card">
+                        <div class="work-vid">
+                            <video src="assets/Projects/VC.mp4" alt="Hero Video" class="img-fluid" loop muted></video>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="card-title">Mobile App Development</h3>
+                            <p class="work-description">Cross-platform mobile application with real-time synchronization
+                                and offline
+                                capabilities.</p>
+                            <a class="btn btn-nav py-1">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="owl-item">
+                    <div class="work-card">
+                        <div class="work-vid">
+                            <video src="assets/Projects/VC.mp4" alt="Hero Video" class="img-fluid" loop muted></video>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="card-title">Mobile App Development</h3>
+                            <p class="work-description">Cross-platform mobile application with real-time synchronization
+                                and offline
+                                capabilities.</p>
+                            <a class="btn btn-nav py-1">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-item">
+                    <div class="work-card">
+                        <div class="work-vid">
+                            <video src="assets/Projects/VC.mp4" alt="Hero Video" class="img-fluid" loop muted></video>
+                        </div>
+                        <div class="work-content">
+                            <h3 class="card-title">Mobile App Development</h3>
+                            <p class="work-description">Cross-platform mobile application with real-time synchronization
+                                and offline
+                                capabilities.</p>
+                            <a class="btn btn-nav py-1">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials -->
-    <section id="testimonials" class="testimonials-section">
+    <section id="testimonials" class="testimonials-section sticky-section">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Testimonials</span>
@@ -472,7 +548,7 @@
                 <p class="section-subtitle">Don't take our word for it. See what the hype's about</p>
             </div>
 
-            <div class="owl-carousel owl-theme mt-5">
+            <div class="owl-carousel owl-theme testimonials-carousel mt-5">
                 <div class="owl-item">
                     <div class="card">
                         <div class="img-card">
@@ -572,6 +648,156 @@
             </div>
         </div>
     </section>
+
+    <!-- Contact Us -->
+    <div class="bg-video-container" id="contact">
+        <video autoplay muted loop playsinline class="bg-video">
+            <source src="/assets/contact.webm" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="section-header text-center mb-4">
+                    <span class="section-tag">Contact Us</span>
+                    <h2 class="section-title mb-2">Leave us a Message</h2>
+                    <p class="section-subtitle">
+                        Got a project in mind? Connect with our expert developers to craft stunning websites and custom
+                        solutions. Let's turn your ideas into reality!
+                    </p>
+                </div>
+
+                <div class="row d-flex justify-content-between align-items-center">
+                    <div class="col-md-5 d-flex justify-content-center mb-5 mb-md-0">
+                        <img src="/assets/Penguin.png" alt="Contact Us" class="img-fluid w-50">
+                    </div>
+
+                    <div class="contact-form col-md-6 h-100 p-0">
+                        <div class="form-container">
+                            <form id="contactForm" class="px-3" method="POST" action="sendmail.php">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="firstName"
+                                                placeholder="First name">
+                                            <label for="firstName">First name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="lastName"
+                                                placeholder="Last name">
+                                            <label for="lastName">Last name</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Email">
+                                    <label for="email">Email</label>
+                                </div>
+
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="message" placeholder="Message"></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-secondary mt-2 w-100">Send Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container pb-3 pt-5 py-md-5 ">
+                <div class="row footer-top">
+                    <!-- Logo -->
+                    <div class="text-center mb-3">
+                        <a class=" footer-brand" href="#">
+                            <img src="/assets/Brillarix-Dark-Mode.avif" alt="Brillarix" class="logo img-fluid">
+                        </a>
+                    </div>
+
+                    <!-- About Us Column -->
+                    <div class="footer-column">
+                        <h3 class="h5">About Us</h3>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-decoration-none">Our Story</a></li>
+                            <li><a href="#" class="text-decoration-none">Mission & Vision</a></li>
+                            <li><a href="#" class="text-decoration-none">Team</a></li>
+                            <li><a href="#" class="text-decoration-none">Careers</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Services Column -->
+                    <div class="footer-column">
+                        <h3 class="h5">Services</h3>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-decoration-none">Design</a></li>
+                            <li><a href="#" class="text-decoration-none">Development</a></li>
+                            <li><a href="#" class="text-decoration-none">Marketing</a></li>
+                            <li><a href="#" class="text-decoration-none">Consulting</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Column -->
+                    <div class=" footer-column">
+                        <h3 class="h5">Contact</h3>
+                        <ul class="list-unstyled">
+                            <li><a href="mailto:contact@brillarix.com" class="text-decoration-none">Email:
+                                    contact@brillarix.com</a>
+                            </li>
+                            <li><a href="#" class="text-decoration-none">Locations</a></li>
+                            <li><a href="#" class="text-decoration-none">Support</a></li>
+                            <li><a href="#" class="text-decoration-none">FAQs</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Social Icons -->
+                    <div class="footer-column">
+                        <h3 class="h5">Follow Us</h3>
+                        <div class="social-icons d-flex justify-content-center gap-2 mt-3 gap-4">
+                            <a href="#" target="_blank" aria-label="Facebook">
+                                <img src="/assets/Social-Media/Facebook.png" alt="Facebook" width="24">
+                            </a>
+                            <a href="#" target="_blank" aria-label="Twitter">
+                                <img src="/assets/Social-Media/Twitter.png" alt="Twitter" width="24">
+                            </a>
+                            <a href="#" target="_blank" aria-label="Instagram">
+                                <img src="/assets/Social-Media/Instagram.png" alt="Instagram" width="24">
+                            </a>
+                            <a href="https://www.linkedin.com/company/brillarixdev" target="_blank"
+                                aria-label="LinkedIn">
+                                <img src="/assets/Social-Media/LinkedIn.png" alt="LinkedIn" width="24">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="footer-bottom">
+                <div class="container">
+                    &copy; 2025 Brillarix. All Rights Reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- Toast Notification -->
+    <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3 text-center">
+        <div id="liveToast" class="toast rounded-pill" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body p-3 text-white" id="toastMessage"></div>
+        </div>
+    </div>
+
+
 
     <script src="script.js"></script>
 
