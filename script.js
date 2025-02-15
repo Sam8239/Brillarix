@@ -422,8 +422,6 @@ $(document).ready(function () {
         works_slider.trigger('to.owl.carousel', [relativeIndex, 500, true]);
     });
 
-
-
 });
 
 
