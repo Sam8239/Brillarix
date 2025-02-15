@@ -40,6 +40,7 @@ a:hover {
 }
 
 body {
+    overflow-x: hidden;
     margin: 0;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
@@ -1290,25 +1291,6 @@ section,
 .contact-section .btn-secondary {
     padding: 0.6rem !important;
 }
-
-
-/* .form-container {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-}
-
-.contact-form {
-    border-radius: 1rem;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: multiply;
-    background-color: rgba(0, 0, 0, 0.5);
-} */
 
 /* Contact Ends */
 

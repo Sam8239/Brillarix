@@ -1,6 +1,39 @@
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+    function setActiveLink() {
+        let scrollPosition = window.scrollY;
+
+        navLinks.forEach(link => {
+            const section = document.querySelector(link.getAttribute("href"));
+
+            if (
+                section.offsetTop - 100 <= scrollPosition &&
+                section.offsetTop + section.offsetHeight - 100 > scrollPosition
+            ) {
+                navLinks.forEach(nav => nav.classList.remove("active"));
+                link.classList.add("active");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", setActiveLink);
+
+    // Optional: Handle click to smoothly scroll and set active class
+    navLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
     var navLinks = document.querySelectorAll(".nav-link");
     var navbarCollapse = document.querySelector(".navbar-collapse");
 
@@ -14,27 +47,36 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// Header animations
-const headerTimeline = gsap.timeline();
-headerTimeline
-    .from('.section-tag', {
-        opacity: 0,
-        y: -30,
-        duration: 1,
-        ease: 'power3.out'
-    })
-    .from('.section-title', {
-        opacity: 0,
-        y: -40,
-        duration: 1,
-        ease: 'power3.out'
-    }, '-=0.5')
-    .from('.section-subtitle', {
-        opacity: 0,
-        y: -30,
-        duration: 1,
-        ease: 'power3.out'
-    }, '-=0.5');
+// Section Animations
+gsap.utils.toArray('section').forEach((section) => {
+    let headerTimeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+        }
+    });
+
+    headerTimeline
+        .from(section.querySelector('.section-tag'), {
+            opacity: 0,
+            y: -30,
+            duration: 1,
+            ease: 'power3.out'
+        })
+        .from(section.querySelector('.section-title'), {
+            opacity: 0,
+            y: -40,
+            duration: 1,
+            ease: 'power3.out'
+        }, '-=0.5')
+        .from(section.querySelector('.section-subtitle'), {
+            opacity: 0,
+            y: -30,
+            duration: 1,
+            ease: 'power3.out'
+        }, '-=0.5');
+});
 
 gsap.utils.toArray('.decoration.decoration-3').forEach((decoration) => {
     gsap.to(decoration, {
@@ -43,7 +85,7 @@ gsap.utils.toArray('.decoration.decoration-3').forEach((decoration) => {
             start: '-=200',
             end: 'bottom bottom',
             scrub: 1.5,
-            markers: false, 
+            markers: false,
             toggleActions: 'play none none reverse',
         },
         y: 150,
@@ -100,30 +142,34 @@ document.querySelectorAll('.service-card').forEach(card => {
     });
 });
 
+// Process Starts
+gsap.from(".step-container", {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    stagger: 0.3,
+    ease: "power3.out",
+    scrollTrigger: {
+        trigger: ".process-section",
+        start: "top 30%",
+        toggleActions: "play none none reverse",
+    }
+});
 
-// gsap.to('.decoration-4', {
-//     scrollTrigger: {
-//         trigger: 'body',
-//         start: 'top top',
-//         end: '500vh',
-//         scrub: 1.5,
-//     },
-//     motionPath: {
-//         path: path,
-//         curviness: 2,
-//         autoRotate: true,
-//         alignOrigin: [0.5, 0.5]
-//     },
-//     ease: "power1.inOut",
-//     duration: 100,
-//     rotation: "+=720",
-//     opacity: 1
-// });
+gsap.from(".step-line", {
+    scaleY: 0,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".process-section",
+        start: "top 30%",
+        toggleActions: "play none none reverse",
+    }
+});
 
+// Process Ends
 
 // Rocket Animation
-
-// Ensure the rocket element exists
 const rocket = document.getElementById("rocket");
 if (!rocket) {
     console.error('Rocket element not found.');
@@ -132,12 +178,11 @@ if (!rocket) {
 let lastScrollTop = 0;
 let scrollTicking = false;
 
-// Animate the rocket upward and trigger confetti and scroll
 const animateRocketUp = () => {
     const rocketTop = rocket.getBoundingClientRect().top;
     const moveDistance = rocketTop - 80;
 
-    launchConfetti();
+    // launchConfetti();
 
     gsap.to(rocket, {
         y: -moveDistance,
@@ -147,43 +192,40 @@ const animateRocketUp = () => {
     });
 };
 
-// Animate the rocket back to its original position
 const animateRocketDown = () => {
     gsap.to(rocket, { y: 0, duration: 2, ease: "power2.inOut" });
 };
 
-// Smoothly scroll to the next section (one viewport height down)
 const scrollToNextSection = () => {
     window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
 };
 
-// Launch a confetti effect over a fixed duration using requestAnimationFrame
-const launchConfetti = () => {
-    const duration = 1500; // Duration in milliseconds
-    const endTime = Date.now() + duration;
+// const launchConfetti = () => {
+//     const duration = 1500; // Duration in milliseconds
+//     const endTime = Date.now() + duration;
 
-    const frame = () => {
-        confetti({
-            particleCount: 5,
-            angle: 60,
-            spread: 55,
-            origin: { x: 0 }
-        });
+//     const frame = () => {
+//         confetti({
+//             particleCount: 5,
+//             angle: 60,
+//             spread: 55,
+//             origin: { x: 0 }
+//         });
 
-        confetti({
-            particleCount: 5,
-            angle: 120,
-            spread: 55,
-            origin: { x: 1 }
-        });
+//         confetti({
+//             particleCount: 5,
+//             angle: 120,
+//             spread: 55,
+//             origin: { x: 1 }
+//         });
 
-        if (Date.now() < endTime) {
-            requestAnimationFrame(frame);
-        }
-    };
+//         if (Date.now() < endTime) {
+//             requestAnimationFrame(frame);
+//         }
+//     };
 
-    requestAnimationFrame(frame);
-};
+//     requestAnimationFrame(frame);
+// };
 
 // Start the upward animation on rocket click
 rocket.addEventListener("click", animateRocketUp);
@@ -242,25 +284,41 @@ rocket.addEventListener('mouseenter', shakeRocket);
 rocket.addEventListener('mouseleave', stopShake);
 
 // Tools Starts
-gsap.to(".tool-item", {
-    opacity: 1,
-    y: 0,
-    duration: 0.8,
-    stagger: {
-        amount: 1,
-        grid: "auto",
-        from: "start"
-    },
-    ease: "power3.out"
-});
+gsap.fromTo(".tool-item",
+    { opacity: 0, x: 100 }, // Start position (right side)
+    {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        stagger: {
+            amount: 1,
+            grid: "auto",
+            from: "start"
+        },
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".tools-section",
+            start: "top 50%",
+            toggleActions: "play none none none"
+        }
+    }
+);
 
-// More tools text animation
-gsap.to(".more-tools", {
-    opacity: 1,
-    duration: 1,
-    delay: 1.5,
-    ease: "power3.out"
-});
+gsap.fromTo(".more-tools",
+    { opacity: 0, x: 100 },
+    {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        delay: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".tools-section",
+            start: "top 50%",
+            toggleActions: "play none none none"
+        }
+    }
+);
 
 // Hover animations for tool circles
 document.querySelectorAll('.tool-circle').forEach(circle => {
