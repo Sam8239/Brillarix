@@ -1,6 +1,16 @@
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
+// Navbar Starts
 document.addEventListener("DOMContentLoaded", function () {
+    const navbar = document.querySelector(".blur-container");
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add("navbar-scroll");
+        } else {
+            navbar.classList.remove("navbar-scroll");
+        }
+    });
+
     const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
 
     function setActiveLink() {
@@ -21,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("scroll", setActiveLink);
 
-    // Optional: Handle click to smoothly scroll and set active class
     navLinks.forEach(link => {
         link.addEventListener("click", function (e) {
             e.preventDefault();
@@ -30,11 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
-});
 
-
-document.addEventListener("DOMContentLoaded", function () {
-    var navLinks = document.querySelectorAll(".nav-link");
     var navbarCollapse = document.querySelector(".navbar-collapse");
 
     navLinks.forEach(function (link) {
@@ -45,131 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+// Navbar Ends
 
-
-// Section Animations
-gsap.utils.toArray('section').forEach((section) => {
-    let headerTimeline = gsap.timeline({
-        scrollTrigger: {
-            trigger: section,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
-        }
-    });
-
-    headerTimeline
-        .from(section.querySelector('.section-tag'), {
-            opacity: 0,
-            y: -30,
-            duration: 1,
-            ease: 'power3.out'
-        })
-        .from(section.querySelector('.section-title'), {
-            opacity: 0,
-            y: -40,
-            duration: 1,
-            ease: 'power3.out'
-        }, '-=0.5')
-        .from(section.querySelector('.section-subtitle'), {
-            opacity: 0,
-            y: -30,
-            duration: 1,
-            ease: 'power3.out'
-        }, '-=0.5');
-});
-
-gsap.utils.toArray('.decoration.decoration-3').forEach((decoration) => {
-    gsap.to(decoration, {
-        scrollTrigger: {
-            trigger: '.about-section',
-            start: '-=200',
-            end: 'bottom bottom',
-            scrub: 1.5,
-            markers: false,
-            toggleActions: 'play none none reverse',
-        },
-        y: 150,
-        ease: 'power1.inOut',
-        duration: 1,
-    });
-});
-
-
-
-
-// Service cards animation
-gsap.utils.toArray('.service-card').forEach((card, i) => {
-    gsap.from(card, {
-        scrollTrigger: {
-            trigger: card,
-            start: 'top bottom-=100',
-            toggleActions: 'play none none reverse'
-        },
-        opacity: 0,
-        y: 0,
-        rotateX: 15,
-        duration: 1,
-        delay: i * 0.1,
-        ease: 'power3.out'
-    });
-});
-
-// 3D hover effect for cards
-document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const xRotation = ((y - rect.height / 2) / rect.height) * 10;
-        const yRotation = ((x - rect.width / 2) / rect.width) * 10;
-
-        gsap.to(card, {
-            rotateX: -xRotation,
-            rotateY: yRotation,
-            duration: 0.5,
-            ease: 'power2.out',
-        });
-    });
-
-    card.addEventListener('mouseleave', () => {
-        gsap.to(card, {
-            rotateX: 0,
-            rotateY: 0,
-            duration: 0.3,
-            ease: 'power2.out',
-        });
-    });
-});
-
-// Process Starts
-gsap.from(".step-container", {
-    opacity: 0,
-    y: 50,
-    duration: 1,
-    stagger: 0.3,
-    ease: "power3.out",
-    scrollTrigger: {
-        trigger: ".process-section",
-        start: "top 30%",
-        toggleActions: "play none none reverse",
-    }
-});
-
-gsap.from(".step-line", {
-    scaleY: 0,
-    duration: 1,
-    ease: "power2.out",
-    scrollTrigger: {
-        trigger: ".process-section",
-        start: "top 30%",
-        toggleActions: "play none none reverse",
-    }
-});
-
-// Process Ends
-
-// Rocket Animation
+// Hero Starts
 const rocket = document.getElementById("rocket");
 if (!rocket) {
     console.error('Rocket element not found.');
@@ -227,10 +110,8 @@ const scrollToNextSection = () => {
 //     requestAnimationFrame(frame);
 // };
 
-// Start the upward animation on rocket click
 rocket.addEventListener("click", animateRocketUp);
 
-// Optimize scroll events using requestAnimationFrame to throttle updates
 window.addEventListener('scroll', () => {
     if (!scrollTicking) {
         window.requestAnimationFrame(() => {
@@ -245,7 +126,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Rocket shake animation using GSAP
 let shakeTween = null;
 
 const shakeRocket = () => {
@@ -270,7 +150,6 @@ const shakeRocket = () => {
     shakeTween = tl;
 };
 
-
 const stopShake = () => {
     if (shakeTween) {
         shakeTween.kill();
@@ -279,13 +158,138 @@ const stopShake = () => {
     gsap.to(rocket, { x: 0, rotation: 0, duration: 0.2 });
 };
 
-// Add mouse events for the shake effect
 rocket.addEventListener('mouseenter', shakeRocket);
 rocket.addEventListener('mouseleave', stopShake);
+// Hero Ends
+
+// Section Animations
+gsap.utils.toArray('section').forEach((section) => {
+    let headerTimeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+        }
+    });
+
+    headerTimeline
+        .from(section.querySelector('.section-tag'), {
+            opacity: 0,
+            y: -30,
+            duration: 1,
+            ease: 'power3.out'
+        })
+        .from(section.querySelector('.section-title'), {
+            opacity: 0,
+            y: -40,
+            duration: 1,
+            ease: 'power3.out'
+        }, '-=0.5')
+        .from(section.querySelector('.section-subtitle'), {
+            opacity: 0,
+            y: -30,
+            duration: 1,
+            ease: 'power3.out'
+        }, '-=0.5');
+});
+
+gsap.utils.toArray('.decoration.decoration-3').forEach((decoration) => {
+    gsap.to(decoration, {
+        scrollTrigger: {
+            trigger: '.about-section',
+            start: '-=200',
+            end: 'bottom bottom',
+            scrub: 1.5,
+            markers: false,
+            toggleActions: 'play none none reverse',
+        },
+        y: 150,
+        ease: 'power1.inOut',
+        duration: 1,
+    });
+});
+
+// Service Starts
+gsap.utils.toArray('.service-card').forEach((card, i) => {
+    gsap.from(card, {
+        scrollTrigger: {
+            trigger: card,
+            start: 'top bottom-=100',
+            toggleActions: 'play none none reverse'
+        },
+        opacity: 0,
+        y: 0,
+        rotateX: 15,
+        duration: 1,
+        delay: i * 0.1,
+        ease: 'power3.out'
+    });
+});
+
+// Tilt Effect
+document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const xRotation = ((y - rect.height / 2) / rect.height) * 10;
+        const yRotation = ((x - rect.width / 2) / rect.width) * 10;
+
+        gsap.to(card, {
+            rotateX: -xRotation,
+            rotateY: yRotation,
+            transformPerspective: 1000,
+            duration: 0.5,
+            ease: 'power2.out',
+            overwrite: true
+        });
+    });
+
+    card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+            rotateX: 0,
+            rotateY: 0,
+            duration: 0.3,
+            ease: 'power2.out',
+            overwrite: true,
+            onComplete: () => gsap.set(card, { clearProps: 'transform' })
+        });
+    });
+});
+
+// Service Ends
+
+// Process Starts
+gsap.from(".step-container", {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    stagger: 0.3,
+    ease: "power3.out",
+    scrollTrigger: {
+        trigger: ".process-section",
+        start: "top 30%",
+        toggleActions: "play none none reverse",
+    }
+});
+
+gsap.from(".step-line", {
+    scaleY: 0,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".process-section",
+        start: "top 30%",
+        toggleActions: "play none none reverse",
+    }
+});
+
+// Process Ends
 
 // Tools Starts
 gsap.fromTo(".tool-item",
-    { opacity: 0, x: 100 }, // Start position (right side)
+    { opacity: 0, x: 100 },
     {
         opacity: 1,
         x: 0,
@@ -320,7 +324,6 @@ gsap.fromTo(".more-tools",
     }
 );
 
-// Hover animations for tool circles
 document.querySelectorAll('.tool-circle').forEach(circle => {
     circle.addEventListener('mouseenter', () => {
         gsap.to(circle, {
@@ -340,92 +343,128 @@ document.querySelectorAll('.tool-circle').forEach(circle => {
 });
 // Tools Ends
 
-document.addEventListener("DOMContentLoaded", () => {
-    const navbar = document.querySelector(".blur-container");
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add("navbar-scroll");
-        } else {
-            navbar.classList.remove("navbar-scroll");
-        }
-    });
-});
-
-
 $(document).ready(function () {
-    var slider = $(".testimonials-carousel");
-    slider.owlCarousel({
+    // Testimonials Carousel
+    var testimonials_slider = $(".testimonials-carousel");
+    testimonials_slider.owlCarousel({
+        items: 1,
+        center: true,
+        loop: true,
+        margin: 10,
         autoplay: true,
         autoplayTimeout: 5000,
         autoplayHoverPause: false,
-        items: 1,
-        center: true,
-        nav: false,
-        margin: 10,
-        dots: true,
-        loop: true,
         smartSpeed: 2000,
+        nav: false,
+        dots: true,
+        lazyLoad: true,
+        mouseDrag: true,
+        touchDrag: true,
+        pullDrag: true,
         responsive: {
             0: { items: 1 },
             480: { items: 2 },
             768: { items: 2 },
             991: { items: 3 },
             1200: { items: 5 }
-        },
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
+        }
+    });
+
+    testimonials_slider.on('click', '.owl-item', function () {
+        var index = $(this).index();
+        var carouselData = testimonials_slider.data('owl.carousel');
+        var relativeIndex = carouselData.relative(index);
+        testimonials_slider.trigger('to.owl.carousel', [relativeIndex, 500, true]);
+    });
+
+    // Works Carousel
+    var works_slider = $(".works-carousel");
+    works_slider.owlCarousel({
+        items: 1,
+        center: true,
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        autoplayTimeout: 10000,
+        autoplayHoverPause: true,
+        smartSpeed: 2000,
+        nav: false,
+        dots: true,
         lazyLoad: true,
         mouseDrag: true,
         touchDrag: true,
         pullDrag: true,
+        slideTransition: "ease-in-out",
+        rtl: true,
+        responsive: {
+            0: { items: 1 },
+            480: { items: 2 },
+            768: { items: 2 },
+            991: { items: 3 },
+            1200: { items: 3 }
+        }
     });
+
+    works_slider.on('translated.owl.carousel', function () {
+        $(".work-card video").each(function () {
+            this.pause();
+            this.currentTime = 0;
+        });
+        $(".owl-item.active.center .work-card video").each(function () {
+            this.play();
+        });
+    });
+
+    works_slider.on('click', '.owl-item', function () {
+        var index = $(this).index();
+        var carouselData = works_slider.data('owl.carousel');
+        var relativeIndex = carouselData.relative(index);
+        works_slider.trigger('to.owl.carousel', [relativeIndex, 500, true]);
+    });
+
+
+
 });
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    gsap.registerPlugin(ScrollTrigger);
 
-    const form = document.querySelector(".contact-form");
-
-    // GSAP animations with ScrollTrigger
-    gsap.from(".contact-form", {
-        opacity: 0,
-        y: -50,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-            trigger: ".contact-form",
-            start: "top 80%", // Adjust start position
-            toggleActions: "play none none none" // Play once when in view
-        }
-    });
-
-    gsap.from(".form-group", {
-        opacity: 0,
-        y: 50,
-        stagger: 0.2,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-            trigger: ".contact-form",
-            start: "top 80%",
-            toggleActions: "play none none none"
-        }
-    });
-
-    gsap.from(".submit-btn", {
-        opacity: 0,
-        scale: 0.8,
-        duration: 1,
-        ease: "elastic.out(1, 0.5)",
-        scrollTrigger: {
-            trigger: ".contact-form",
-            start: "top 80%",
-            toggleActions: "play none none none"
-        }
-    });
+// Contact Starts
+gsap.from(".contact-form", {
+    opacity: 0,
+    y: -50,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".contact-form",
+        start: "top 80%",
+        toggleActions: "play none none none"
+    }
 });
 
+gsap.from(".form-group", {
+    opacity: 0,
+    y: 50,
+    stagger: 0.2,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".contact-form",
+        start: "top 80%",
+        toggleActions: "play none none none"
+    }
+});
+
+gsap.from(".submit-btn", {
+    opacity: 0,
+    scale: 0.8,
+    duration: 1,
+    ease: "elastic.out(1, 0.5)",
+    scrollTrigger: {
+        trigger: ".contact-form",
+        start: "top 80%",
+        toggleActions: "play none none none"
+    }
+});
 
 gsap.from(".footer-column", {
     y: 50,
@@ -436,47 +475,4 @@ gsap.from(".footer-column", {
     delay: 0.5
 });
 
-
-$(document).ready(function () {
-    var slider2 = $(".works-carousel");
-    slider2.owlCarousel({
-        autoplay: true,
-        autoplayTimeout: 10000,
-        autoplayHoverPause: true,
-        items: 1,
-        center: true,
-        nav: false,
-        margin: 10,
-        dots: true,
-        loop: true,
-        smartSpeed: 2000,
-        responsive: {
-            0: { items: 1 },
-            480: { items: 2 },
-            768: { items: 2 },
-            991: { items: 3 },
-            1200: { items: 3 }
-        },
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
-        slideTransition: "ease-in-out",
-        lazyLoad: true,
-        mouseDrag: true,
-        touchDrag: true,
-        pullDrag: true,
-        rtl: true,
-        onTranslated: function () {
-            $(".work-card video").each(function () {
-                this.pause();
-                this.currentTime = 0;
-            });
-
-            $(".owl-item.active.center .work-card video").each(function () {
-                this.play();
-            });
-        }
-    });
-});
-
-
-
+// Contact Ends

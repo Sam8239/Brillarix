@@ -1,0 +1,154 @@
+@media (max-width: 768px) {
+    .section-title {
+        margin-bottom: 20px;
+    }
+
+    .section-subtitle {
+        line-height: 1.5;
+    }
+}
+
+
+@media (max-width: 991px) {
+    .blur-container {
+        width: 100%;
+        border-radius: 20px;
+        padding: 0.25rem;
+    }
+
+    .navbar {
+        padding: 0.8rem 1.5rem;
+    }
+
+    .nav-link {
+        padding: 0.8rem 1rem;
+        margin: 0.2rem 0;
+    }
+
+    .nav-link:after {
+        height: 1.5px;
+    }
+}
+
+
+@media (min-width: 576px) {
+    .rocket-container:hover .hover-text {
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-quote {
+        margin-bottom: 20px;
+    }
+
+    .hero-heading {
+        font-size: 2rem !important;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem !important;
+    }
+
+    .rocket-container {
+        bottom: 3%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .step-container {
+        margin-bottom: 1.5rem;
+    }
+
+    .step-line,
+    .step-point-wrapper {
+        display: none;
+    }
+
+    .step-content {
+        text-align: center;
+        margin-top: 0;
+        animation-delay: calc(var(--step-index) * 0.2s);
+    }
+
+    .step-number {
+        justify-self: center;
+    }
+}
+
+@media (max-width: 991px) {
+    .about-section {
+        padding: 80px 0;
+    }
+
+    .image-container {
+        margin: 60px auto 0;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-title {
+        font-size: 2.5rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .decoration {
+        display: none;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media(min-width: 480.6px) and (max-width: 575.5px) {
+    .owl-carousel .owl-item .card .name {
+        left: 24%;
+    }
+}
+
+@media(max-width: 360px) {
+    .owl-carousel .owl-item .card .name {
+        left: 30%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .footer-top {
+        gap: 0px;
+        text-align: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column {
+        margin: 10px 0;
+    }
+
+    .footer-top>div:first-child {
+        grid-column: 1 / -1;
+    }
+}
