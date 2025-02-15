@@ -36,9 +36,6 @@ headerTimeline
         ease: 'power3.out'
     }, '-=0.5');
 
-
-// Decorative elements parallax
-// Animate decoration-3 elements with GSAP
 gsap.utils.toArray('.decoration.decoration-3').forEach((decoration) => {
     gsap.to(decoration, {
         scrollTrigger: {
@@ -46,12 +43,12 @@ gsap.utils.toArray('.decoration.decoration-3').forEach((decoration) => {
             start: '-=200',
             end: 'bottom bottom',
             scrub: 1.5,
-            markers: false,  // Set to true if you want to see debug markers for the start/end points
-            toggleActions: 'play none none reverse',  // This controls what happens on scroll
+            markers: false, 
+            toggleActions: 'play none none reverse',
         },
         y: 150,
         ease: 'power1.inOut',
-        duration: 1,  // You can control the speed/duration of the animation
+        duration: 1,
     });
 });
 
