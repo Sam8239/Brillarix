@@ -1234,6 +1234,80 @@ section,
 
 /* Testimonials Ends */
 
+/* FAQ Section start */
+.faq-section {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 32px;
+}
+
+.faq-container {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.faq-item {
+    margin-bottom: 10px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.faq-item:last-child {
+    margin-bottom: 0;
+}
+
+.faq-question {
+    color: white;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+    background: none;
+    font-weight: bold;
+}
+
+.faq-question:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+    opacity: 0;
+    padding: 0 10px;
+    margin-top: 5px;
+    font-style: inter;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.faq-answer.show {
+    max-height: 1000px; /* Arbitrary large value to allow for smooth transition */
+    opacity: 1;
+    padding: 10px;
+}
+
+.faq-toggle {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active .faq-toggle {
+    transform: rotate(45deg);
+}
+/* FAQs Section end*/
+
 /* Contact Starts */
 .bg-video-container {
     perspective: 1000px;
