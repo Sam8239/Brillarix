@@ -39,6 +39,10 @@ a:hover {
     transition: all 0.3s ease-in-out;
 }
 
+h1 {
+    margin: 0;
+}
+
 body {
     overflow-x: hidden;
     margin: 0;
@@ -1259,23 +1263,6 @@ section,
 /* FAQs Section end*/
 
 /* Contact Starts */
-.bg-video-container {
-    perspective: 1000px;
-    z-index: 2;
-}
-
-.bg-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    filter: brightness(30%) saturate(200%);
-}
-
 .contact-section .container {
     gap: 5rem;
 }
@@ -1304,6 +1291,15 @@ section,
 .form-floating input,
 .form-floating textarea {
     padding-left: 1rem !important
+}
+
+.form-floating textarea {
+    resize: none;
+    transition: height 0.3s ease-in-out;
+}
+
+.form-floating textarea:focus {
+    height: 100px;
 }
 
 .form-floating>.form-control:focus~label::after,
@@ -1340,7 +1336,6 @@ section,
     gap: 20px;
     text-align: center;
 }
-
 
 .footer-column {
     z-index: 2;
@@ -1392,7 +1387,7 @@ section,
     transform: scale(1.1);
 }
 
-.footer-brand img {
+.footer-brand {
     width: 200px;
     height: auto;
 }
@@ -1447,6 +1442,7 @@ section,
 .terms-content ul li {
     position: relative;
     margin-bottom: 0.5em;
+    margin-top: 0.5em;
     padding-left: 0.5rem;
 }
 
@@ -1467,3 +1463,39 @@ section,
 }
 
 /* Privacy Policy & Terms Ends */
+
+.whatsapp-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.whatsapp-penguin {
+    width: 60px;
+    height: 60px;
+}
+
+.whatsapp {
+    box-shadow: 0 0 30px #8a2be2;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.whatsapp img {
+    transition: all 0.5s ease;
+}
+
+.whatsapp img:hover {
+    scale: 1.1;
+}

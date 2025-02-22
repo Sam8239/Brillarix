@@ -489,3 +489,11 @@ VanillaTilt.init(document.querySelectorAll(".service-card"), {
     glare: true,
     "max-glare": 0.2
 });
+
+
+function openWhatsApp() {
+    var phoneNumber = "+917742962886";
+    var message = "Hello! I'm interested in your software services. Can we discuss how you can help my business?";
+    var url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+    window.open(url, "_blank");
+}

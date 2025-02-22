@@ -756,25 +756,27 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="firstName" placeholder="First name">
+                                        <input type="text" class="form-control" id="firstName" placeholder="First name"
+                                            required>
                                         <label for="firstName">First name</label>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="lastName" placeholder="Last name">
+                                        <input type="text" class="form-control" id="lastName" placeholder="Last name"
+                                            required>
                                         <label for="lastName">Last name</label>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-floating">
-                                <input type="email" class="form-control" id="email" placeholder="Email">
+                                <input type="email" class="form-control" id="email" placeholder="Email" required>
                                 <label for="email">Email</label>
                             </div>
 
                             <div class="form-floating">
-                                <textarea class="form-control" id="message" placeholder="Message"></textarea>
+                                <textarea class="form-control" id="message" placeholder="Message" required></textarea>
                                 <label for="message">Message</label>
                             </div>
 
@@ -793,9 +795,10 @@
         <div class="container pb-3 pt-5 py-md-5 ">
             <div class="row footer-top">
                 <!-- Logo -->
-                <div class="text-center d-flex flex-column justify-content-between">
-                    <a class=" footer-brand" href="#">
-                        <img src="assets/Brillarix-Dark-Mode.avif" alt="Brillarix" class="logo img-fluid">
+                <div
+                    class="text-center d-flex flex-column justify-content-between gap-4 mb-4 mb-lg-0 align-items-center">
+                    <a class="footer-brand" href="/">
+                        <img src="assets/Brillarix-Dark-Mode.avif" alt="Brillarix" class="img-fluid">
                     </a>
                     <p class="">Transforming businesses through pioneering solutions since 2023</p>
                     <div class="social-icons d-flex justify-content-center gap-2 gap-4">
@@ -835,7 +838,7 @@
                 </div>
 
                 <!-- Contact Column -->
-                <div class=" footer-column">
+                <div class="footer-column">
                     <h3 class="h5">Contact</h3>
                     <ul class="list-unstyled">
                         <li><a href="mailto:contact@brillarix.com" class="text-decoration-none">Email:
@@ -855,6 +858,15 @@
             </div>
         </div>
     </footer>
+
+    <div class="whatsapp-widget" onclick="openWhatsApp()">
+        <div class="whatsapp-penguin mb-2">
+            <img src="assets/penguin_watsapp.png" alt="WhatsApp Penguin" class="img-fluid">
+        </div>
+        <div class="whatsapp">
+            <img src="assets/whatsapp.png" alt="WhatsApp" class="img-fluid">
+        </div>
+    </div>
 
     <!-- Toast Notification -->
     <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3 text-center">
