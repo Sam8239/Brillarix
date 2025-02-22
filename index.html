@@ -21,7 +21,6 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
-
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
@@ -42,15 +41,17 @@
     <!-- Owl Carousel JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" defer></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+
     <!-- <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js" defer></script> -->
 </head>
 
 
 <body data-bs-theme="dark">
     <!-- Header -->
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top py-1 py-md-2 mt-1 container px-2">
-        <div class="w-100 d-flex justify-content-center">
-            <div class="blur-container d-lg-flex justify-content-between p-2 px-1">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top py-1 py-md-2 px-2">
+        <div class="w-100 d-flex justify-content-center container">
+            <div class="d-lg-flex justify-content-between p-2 px-1 w-100">
                 <div class="nav-mobile d-flex justify-content-between">
                     <a class="fs-4 fw-bold m-0 d-flex  align-items-center ms-2" href="#">
                         <img src="assets/Brillarix-Dark-Mode.avif" alt="Brillarix" class="logo">
@@ -82,10 +83,11 @@
                             <a class="nav-link" href="#contact">CONTACT US</a>
                         </li>
                     </ul>
-                    <a class="btn btn-nav mobile px-4 mt-lg-0 my-2 d-lg-none" type="button">Get a
+                    <a href="get-quote.html" class="btn btn-nav mobile px-4 mt-lg-0 my-2 d-lg-none" type="button">Get a
                         Quote</a>
                 </div>
-                <a class="btn px-4 btn-nav px-4 mt-lg-0 mt-3 me-1 d-none d-lg-block" type="button">Get a
+                <a href="get-quote.html" class="btn px-4 btn-nav px-4 mt-lg-0 mt-3 me-1 d-none d-lg-block"
+                    type="button">Get a
                     Quote
                 </a>
             </div>
@@ -103,10 +105,10 @@
                     <img src="https://i.pravatar.cc/40?img=3" alt="User 3">
                     <img src="https://i.pravatar.cc/40?img=4" alt="User 4">
                 </div>
-                <div class="text">Trusted by 1,000+ businesses worldwide</div>
+                <div class="text">Trusted by businesses across the globe</div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 text-center text-lg-start">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-lg-6 text-center text-lg-start">
                     <h1 class="display-2 fw-bold hero-heading">Where Brilliance<br>Meets Excellence</h1>
                     <p class="fs-5 section-subtitle text-center text-lg-start">We specialize in custom software
                         development, AI-driven
@@ -117,8 +119,12 @@
                         <a class="btn btn-secondary mt-4">Book a Call</a>
                     </div>
                 </div>
-                <div class="hero-img d-none d-lg-block">
-                    <img src="assets/Projects/Prompt-Vault.png" alt="Hero Image" class="img-fluid">
+                <div class="col-lg-5 text-center tilt-img">
+                    <div class="position-relative">
+                        <img class="img-fluid " src="assets/hero-img.png" alt="" draggable="false">
+                        <div class="radar"></div>
+                        <div class="orbit"> </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -140,7 +146,9 @@
                     <div class="step-container" style="--step-index: 0">
                         <div class="step-line"></div>
                         <div class="step-point-wrapper">
-                            <div class="step-point">1</div>
+                            <div class="step-point">
+                                <img src="assets/1.png" alt="">
+                            </div>
                         </div>
                         <div class="step-content ">
                             <div class="step-number">Step 1</div>
@@ -155,7 +163,9 @@
                     <div class="step-container" style="--step-index: 1">
                         <div class="step-line"></div>
                         <div class="step-point-wrapper">
-                            <div class="step-point">2</div>
+                            <div class="step-point">
+                                <img src="assets/2.png" alt="">
+                            </div>
                         </div>
                         <div class="step-content">
                             <div class="step-number">Step 2</div>
@@ -171,7 +181,9 @@
                 <div class="col-md-4 d-flex">
                     <div class="step-container" style="--step-index: 2">
                         <div class="step-point-wrapper">
-                            <div class="step-point">3</div>
+                            <div class="step-point">
+                                <img src="assets/3.png" alt="">
+                            </div>
                         </div>
                         <div class="step-content">
                             <div class="step-number">Step 3</div>
@@ -190,57 +202,40 @@
     <!-- About Us -->
     <section id="about" class="about-section">
         <div class="container">
-            <img class="decoration decoration-3 d-none d-lg-block" src="assets/sphere-front-gradient.png"
-                alt="sphere-front-gradient">
+            <!-- <img class="decoration decoration-3 d-none d-lg-block" src="assets/sphere-front-gradient.png"
+                alt="sphere-front-gradient"> -->
             <div class="row justify-content-center">
-                <div class="about-heading">
+                <div class="section-header">
+                    <img src="assets/ph-1.png" alt="" width="75px" class="mb-2">
                     <div class="section-tag">About Us</div>
                     <h1 class="section-title">Crafting Websites with Precision</h1>
+                    <p class="section-subtitle">
+                        We are a team of passionate web developers dedicated to crafting innovative,
+                        user-friendly
+                        websites tailored to your unique needs. Our mission is to transform ideas into digital
+                        experiences that inspire, engage, and deliver results.
+                    </p>
                 </div>
-                <div class="col-md-6 d-flex justify-content-center align-items-center d-none d-lg-flex">
-                    <div class="about-vid">
-                        <video src="assets/Projects/VC.mp4" alt="Hero Video" class="img-fluid" autoplay loop muted>
-                        </video>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="mb-5">
-                        <p class="section-subtitle">
-                            We are a team of passionate web developers dedicated to crafting innovative,
-                            user-friendly
-                            websites tailored to your unique needs. Our mission is to transform ideas into digital
-                            experiences that inspire, engage, and deliver results.
-                        </p>
-                    </div>
-                    <div class="row row-gap-4">
-                        <div class="col-md-6">
+                <div class="mt-5">
+                    <div class="row aboutus-cards">
+                        <div class="col-sm-6 col-lg-4 position-relative">
+                            <div class="feature-icon">
+                                <img src="assets/Performance.png" alt="" class="img-fluid">
+                            </div>
                             <div class="feature-card">
                                 <h3 class="feature-title">
-                                    <div class="feature-icon">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff6b00"
-                                            stroke-width="2">
-                                            <circle cx="12" cy="12" r="10" />
-                                            <line x1="12" y1="8" x2="12" y2="16" />
-                                            <line x1="8" y1="12" x2="16" y2="12" />
-                                        </svg>
-                                    </div>Best Performance
+                                    Best Performance
                                 </h3>
                                 <p class="feature-text">Built with best practices and optimization techniques for
-                                    maximum
-                                    speed and efficiency.</p>
+                                    maximum speed and efficiency.</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-sm-6 col-lg-4 position-relative">
+                            <div class="feature-icon">
+                                <img src="assets/support.png" alt="" class="img-fluid">
+                            </div>
                             <div class="feature-card">
                                 <h3 class="feature-title">
-
-                                    <div class="feature-icon">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff6b00"
-                                            stroke-width="2">
-                                            <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            <path d="M15 9l-6 6M9 9l6 6" />
-                                        </svg>
-                                    </div>
                                     Super Support
                                 </h3>
                                 <p class="feature-text">24/7 dedicated support team ready to assist you with any
@@ -248,38 +243,55 @@
                                     or issues.</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-sm-6 col-lg-4 position-relative">
+                            <div class="feature-icon">
+                                <img src="assets/custom_solution.png" alt="" class="img-fluid">
+                            </div>
                             <div class="feature-card">
                                 <h3 class="feature-title">
-                                    <div class="feature-icon">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff6b00"
-                                            stroke-width="2">
-                                            <polygon points="12 2 2 7 12 12 22 7" />
-                                            <polyline points="2 17 12 22 22 17" />
-                                            <polyline points="2 12 12 17 22 12" />
-                                        </svg>
-                                    </div>Custom Solutions
+                                    Custom Solutions
                                 </h3>
                                 <p class="feature-text">Tailored development solutions that match your specific
                                     business
                                     requirements.</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-sm-6 col-lg-4 position-relative">
+                            <div class="feature-icon">
+                                <img src="assets/Web.png" alt="" class="img-fluid">
+                            </div>
                             <div class="feature-card">
                                 <h3 class="feature-title">
-                                    <div class="feature-icon">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff6b00"
-                                            stroke-width="2">
-                                            <path d="M12 19l7-7 3 3-7 7-3-3z" />
-                                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
-                                            <path d="M2 2l7.586 7.586" />
-                                            <circle cx="11" cy="11" r="2" />
-                                        </svg>
-                                    </div>Modern Design
+                                    Modern Design
                                 </h3>
                                 <p class="feature-text">Contemporary designs that engage users and enhance brand
                                     presence.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 position-relative">
+                            <div class="feature-icon">
+                                <img src="assets/Data_Security.png" alt="" class="img-fluid">
+                            </div>
+                            <div class="feature-card">
+                                <h3 class="feature-title">
+                                    Data Security
+                                </h3>
+                                <p class="feature-text">Enterprise-grade protection for your sensitive information with
+                                    advanced encryption and compliance measures.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 position-relative">
+                            <div class="feature-icon">
+                                <img src="assets/Scalable_Infra.png" alt="" class="img-fluid">
+                            </div>
+                            <div class="feature-card">
+                                <h3 class="feature-title">
+                                    Scalable Infrastructure
+                                </h3>
+                                <p class="feature-text">Future-proof technology that grows alongside your business
+                                    without compromising performance.
                                 </p>
                             </div>
                         </div>
@@ -374,6 +386,7 @@
     <section class="tools-section">
         <div class="container">
             <div class="section-header">
+                <img src="assets/ph-2.png" alt="" width="75px" class="mb-2">
                 <span class="section-tag">Tools</span>
                 <h2 class="section-title mb-2">Tools We Master</h2>
                 <p class="section-subtitle">
@@ -555,6 +568,7 @@
     <section id="testimonials" class="testimonials-section sticky-section">
         <div class="container">
             <div class="section-header">
+                <img src="assets/ph-3.png" alt="" width="75px" class="mb-2">
                 <span class="section-tag">Testimonials</span>
                 <h2 class="section-title mb-2">What Our Clients Say</h2>
                 <p class="section-subtitle">Don't take our word for it. See what the hype's about</p>
@@ -562,245 +576,285 @@
 
             <div class="owl-carousel owl-theme testimonials-carousel mt-5">
                 <div class="item">
-                    <div class="card">
-                        <div class="img-card">
-                            <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                                alt="">
+                    <div class="card testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars text-center">⭐⭐⭐⭐⭐</div>
+                            <div class="testimonial">
+                                Collaborating with Brillarix was a remarkable experience. Their team quickly grasped
+                                our requirements, maintained excellent communication, and consistently met deadlines.
+                                What started as a simple concept evolved into a polished, customer-ready product
+                                promptly. Their expertise and valuable insights not only expedited the process but
+                                also resulted in substantial cost savings.
+                            </div>
                         </div>
-                        <div class="testimonial">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus expedita dicta doloremque
-                            odit
-                            saepe quo natus aut accusantium alias blanditiis.
-                        </div>
-                        <div class="name">
-                            Denis Richie
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <div class="img-card">
-                            <img src="https://images.pexels.com/photos/1024311/pexels-photo-1024311.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
-                                alt="">
-                        </div>
-                        <div class="testimonial">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus expedita dicta doloremque
-                            odit
-                            saepe quo natus aut accusantium alias blanditiis.
-                        </div>
-                        <div class="name">
-                            Lisa Sthalekar
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <div class="img-card">
+                                <img src="assets/Company/SIGNM.png" alt="Company Logo">
+                            </div>
+                            <div class="profile">
+                                <img src="assets/Testimonials/1.webp" alt="Daniel S">
+                                <div class="name">Daniel S</div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="item">
-                    <div class="card">
-                        <div class="img-card">
-                            <img src="https://images.pexels.com/photos/1036622/pexels-photo-1036622.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                                alt="">
+                    <div class="card testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars text-center">⭐⭐⭐⭐⭐</div>
+                            <div class="testimonial">
+                                Brillarix was able to transform my rough ideas into a fully functional app that
+                                customers love! The team was able to understand our requirements, hopes, and dreams
+                                and easily proposed ways to build the app. My entire team loves working with them.
+                            </div>
                         </div>
-                        <div class="testimonial">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus expedita dicta doloremque
-                            odit
-                            saepe quo natus aut accusantium alias blanditiis.
-                        </div>
-                        <div class="name">
-                            Elizabith Richie
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <div class="img-card">
+                                <img src="assets/Company/EZDocs.png" alt="Company Logo">
+                            </div>
+                            <div class="profile">
+                                <img src="assets/Testimonials/1.webp" alt="Angie Schwab">
+                                <div class="name">Angie Schwab</div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="item">
-                    <div class="card">
-                        <div class="img-card">
-                            <img src="https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                                alt="">
+                    <div class="card testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars text-center">⭐⭐⭐⭐⭐</div>
+                            <div class="testimonial">
+                                Our experience with Brillarix was exceptional. They adeptly facilitated the
+                                development of several intricate internal processes for our company, all while
+                                leveraging no-code technology to ensure accessibility and usability across our
+                                entire team.
+                            </div>
                         </div>
-                        <div class="testimonial">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus expedita dicta doloremque
-                            odit
-                            saepe quo natus aut accusantium alias blanditiis.
-                        </div>
-                        <div class="name">
-                            Daniel Xavier
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <div class="img-card">
+                                <img src="assets/Company/Streamlined_Media.png" alt="Company Logo">
+                            </div>
+                            <div class="profile">
+                                <img src="assets/Testimonials/1.webp" alt="Kevin Mills">
+                                <div class="name">Kevin Mills</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="card">
-                        <div class="img-card">
-                            <img src="https://images.pexels.com/photos/1832959/pexels-photo-1832959.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                                alt="">
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- FAQs -->
+    <div id="faqs" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <img src="assets/ph-4.png" alt="" width="75px" class="mb-2">
+                <span class="section-tag">FAQs</span>
+                <h2 class="section-title mb-2">Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-container">
+                <div class="accordion" id="faqAccordion">
+                    <!-- FAQ Item -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq1">
+                                What services do you offer?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                We offer a wide range of services including web development, digital solutions,
+                                innovation
+                                strategy, and more.
+                            </div>
                         </div>
-                        <div class="testimonial">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus expedita dicta doloremque
-                            odit
-                            saepe quo natus aut accusantium alias blanditiis.
+                    </div>
+
+                    <!-- FAQ Item -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq2">
+                                How can I get a quote?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                You can get a quote by clicking the "Get a Quote" button on our website and filling out
+                                the
+                                form with your project details.
+                            </div>
                         </div>
-                        <div class="name">
-                            Emma Watson
+                    </div>
+
+                    <!-- FAQ Item -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq3">
+                                Do you provide support after project completion?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, we provide ongoing support and maintenance services to ensure your project
+                                continues to
+                                run smoothly.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq4">
+                                How long does it take to build a website?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Typical website development takes 2-4 weeks, depending on complexity. Simple landing
+                                pages
+                                can be completed in a week, while more complex platforms might take 6-8 weeks. We'll
+                                provide
+                                a detailed timeline during our initial consultation.
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="card">
-                        <div class="img-card">
-                            <img src="https://images.pexels.com/photos/718261/pexels-photo-718261.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                                alt="">
-                        </div>
-                        <div class="testimonial">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus expedita dicta doloremque
-                            odit
-                            saepe quo natus aut accusantium alias blanditiis.
-                        </div>
-                        <div class="name">
-                            Mohammad Imran
-                        </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Us -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header text-center mb-4">
+                <span class="section-tag">Contact Us</span>
+                <h2 class="section-title mb-2">Leave us a Message</h2>
+                <p class="section-subtitle">
+                    Got a project in mind? Connect with our expert developers to craft stunning websites and custom
+                    solutions. Let's turn your ideas into reality!
+                </p>
+            </div>
+
+            <div class="row d-flex justify-content-between align-items-center">
+                <div class="col-md-5 d-flex justify-content-center mb-5 mb-md-0">
+                    <img src="assets/Penguin.png" alt="Contact Us" class="img-fluid w-50">
+                </div>
+
+                <div class="contact-form col-md-6 h-100 p-0">
+                    <div class="form-container">
+                        <form id="contactForm" class="px-3" method="POST" action="sendmail.php">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="firstName" placeholder="First name">
+                                        <label for="firstName">First name</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="lastName" placeholder="Last name">
+                                        <label for="lastName">Last name</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="email" placeholder="Email">
+                                <label for="email">Email</label>
+                            </div>
+
+                            <div class="form-floating">
+                                <textarea class="form-control" id="message" placeholder="Message"></textarea>
+                                <label for="message">Message</label>
+                            </div>
+
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-secondary mt-2 w-100">Send Message</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Us -->
-    <div class="bg-video-container" id="contact">
-        <video autoplay muted loop playsinline class="bg-video">
-            <source src="assets/contact.webm" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-
-        <section class="contact-section">
-            <div class="container">
-                <div class="section-header text-center mb-4">
-                    <span class="section-tag">Contact Us</span>
-                    <h2 class="section-title mb-2">Leave us a Message</h2>
-                    <p class="section-subtitle">
-                        Got a project in mind? Connect with our expert developers to craft stunning websites and custom
-                        solutions. Let's turn your ideas into reality!
-                    </p>
-                </div>
-
-                <div class="row d-flex justify-content-between align-items-center">
-                    <div class="col-md-5 d-flex justify-content-center mb-5 mb-md-0">
-                        <img src="assets/Penguin.png" alt="Contact Us" class="img-fluid w-50">
-                    </div>
-
-                    <div class="contact-form col-md-6 h-100 p-0">
-                        <div class="form-container">
-                            <form id="contactForm" class="px-3" method="POST" action="sendmail.php">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="firstName"
-                                                placeholder="First name">
-                                            <label for="firstName">First name</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="lastName"
-                                                placeholder="Last name">
-                                            <label for="lastName">Last name</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Email">
-                                    <label for="email">Email</label>
-                                </div>
-
-                                <div class="form-floating">
-                                    <textarea class="form-control" id="message" placeholder="Message"></textarea>
-                                    <label for="message">Message</label>
-                                </div>
-
-                                <div class="form-group text-center">
-                                    <button type="submit" class="btn btn-secondary mt-2 w-100">Send Message</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container pb-3 pt-5 py-md-5 ">
-                <div class="row footer-top">
-                    <!-- Logo -->
-                    <div class="text-center mb-3">
-                        <a class=" footer-brand" href="#">
-                            <img src="assets/Brillarix-Dark-Mode.avif" alt="Brillarix" class="logo img-fluid">
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container pb-3 pt-5 py-md-5 ">
+            <div class="row footer-top">
+                <!-- Logo -->
+                <div class="text-center d-flex flex-column justify-content-between">
+                    <a class=" footer-brand" href="#">
+                        <img src="assets/Brillarix-Dark-Mode.avif" alt="Brillarix" class="logo img-fluid">
+                    </a>
+                    <p class="">Transforming businesses through pioneering solutions since 2023</p>
+                    <div class="social-icons d-flex justify-content-center gap-2 gap-4">
+                        <a href="#" target="_blank" aria-label="Facebook">
+                            <img src="assets/Social-Media/Facebook.png" alt="Facebook" width="24">
+                        </a>
+                        <a href="https://x.com/BrillarixTech" target="_blank" aria-label="Twitter">
+                            <img src="assets/Social-Media/Twitter.png" alt="Twitter" width="24">
+                        </a>
+                        <a href="https://www.instagram.com/brillarixtech" target="_blank" aria-label="Instagram">
+                            <img src="assets/Social-Media/Instagram.png" alt="Instagram" width="24">
+                        </a>
+                        <a href="https://www.linkedin.com/company/brillarixtech" target="_blank" aria-label="LinkedIn">
+                            <img src="assets/Social-Media/LinkedIn.png" alt="LinkedIn" width="24">
                         </a>
                     </div>
+                </div>
 
-                    <!-- About Us Column -->
-                    <div class="footer-column">
-                        <h3 class="h5">About Us</h3>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-decoration-none">Our Story</a></li>
-                            <li><a href="#" class="text-decoration-none">Mission & Vision</a></li>
-                            <li><a href="#" class="text-decoration-none">Team</a></li>
-                            <li><a href="#" class="text-decoration-none">Careers</a></li>
-                        </ul>
-                    </div>
+                <!-- About Us Column -->
+                <div class="footer-column">
+                    <h3 class="h5">About Us</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none">Our Story</a></li>
+                        <li><a href="#" class="text-decoration-none">Team</a></li>
+                        <li><a href="#" class="text-decoration-none">Careers</a></li>
+                    </ul>
+                </div>
 
-                    <!-- Services Column -->
-                    <div class="footer-column">
-                        <h3 class="h5">Services</h3>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-decoration-none">Design</a></li>
-                            <li><a href="#" class="text-decoration-none">Development</a></li>
-                            <li><a href="#" class="text-decoration-none">Marketing</a></li>
-                            <li><a href="#" class="text-decoration-none">Consulting</a></li>
-                        </ul>
-                    </div>
+                <!-- Services Column -->
+                <div class="footer-column">
+                    <h3 class="h5">Services</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none">Design</a></li>
+                        <li><a href="#" class="text-decoration-none">Development</a></li>
+                        <li><a href="#" class="text-decoration-none">Consulting</a></li>
+                    </ul>
+                </div>
 
-                    <!-- Contact Column -->
-                    <div class=" footer-column">
-                        <h3 class="h5">Contact</h3>
-                        <ul class="list-unstyled">
-                            <li><a href="mailto:contact@brillarix.com" class="text-decoration-none">Email:
-                                    contact@brillarix.com</a>
-                            </li>
-                            <li><a href="#" class="text-decoration-none">Locations</a></li>
-                            <li><a href="#" class="text-decoration-none">Support</a></li>
-                            <li><a href="#" class="text-decoration-none">FAQs</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Social Icons -->
-                    <div class="footer-column">
-                        <h3 class="h5">Follow Us</h3>
-                        <div class="social-icons d-flex justify-content-center gap-2 mt-3 gap-4">
-                            <a href="#" target="_blank" aria-label="Facebook">
-                                <img src="assets/Social-Media/Facebook.png" alt="Facebook" width="24">
-                            </a>
-                            <a href="#" target="_blank" aria-label="Twitter">
-                                <img src="assets/Social-Media/Twitter.png" alt="Twitter" width="24">
-                            </a>
-                            <a href="#" target="_blank" aria-label="Instagram">
-                                <img src="assets/Social-Media/Instagram.png" alt="Instagram" width="24">
-                            </a>
-                            <a href="https://www.linkedin.com/company/brillarixdev" target="_blank"
-                                aria-label="LinkedIn">
-                                <img src="assets/Social-Media/LinkedIn.png" alt="LinkedIn" width="24">
-                            </a>
-                        </div>
-                    </div>
+                <!-- Contact Column -->
+                <div class=" footer-column">
+                    <h3 class="h5">Contact</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="mailto:contact@brillarix.com" class="text-decoration-none">Email:
+                                contact@brillarix.com</a>
+                        </li>
+                        <li><a href="privacy-policy.html" class="text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="terms-and-conditions.html" class="text-decoration-none">Terms & Conditions</a></li>
+                    </ul>
                 </div>
             </div>
+        </div>
 
 
-            <div class="footer-bottom">
-                <div class="container">
-                    &copy; 2025 Brillarix. All Rights Reserved.
-                </div>
+        <div class="footer-bottom">
+            <div class="container">
+                &copy; 2025 Brillarix. All Rights Reserved.
             </div>
-        </footer>
-    </div>
-
+        </div>
+    </footer>
 
     <!-- Toast Notification -->
     <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3 text-center">

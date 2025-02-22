@@ -2,43 +2,59 @@ gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 // Navbar Starts
 document.addEventListener("DOMContentLoaded", function () {
-    const navbar = document.querySelector(".blur-container");
+    const navbar = document.querySelector(".navbar");
+
     window.addEventListener("scroll", () => {
         if (window.scrollY > 50) {
-            navbar.classList.add("navbar-scroll");
+            navbar.style.backdropFilter = "blur(20px)";
+            navbar.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
         } else {
-            navbar.classList.remove("navbar-scroll");
+            navbar.style.backdropFilter = "none";
+            navbar.style.backgroundColor = "transparent";
         }
     });
+
 
     const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
 
     function setActiveLink() {
         let scrollPosition = window.scrollY;
+        let activeLink = null;
 
         navLinks.forEach(link => {
-            const section = document.querySelector(link.getAttribute("href"));
+            const href = link.getAttribute("href");
+            if (!href || href.startsWith("/")) return;
 
-            if (
-                section.offsetTop - 100 <= scrollPosition &&
-                section.offsetTop + section.offsetHeight - 100 > scrollPosition
-            ) {
-                navLinks.forEach(nav => nav.classList.remove("active"));
-                link.classList.add("active");
+            const section = document.querySelector(href);
+            if (!section) return;
+
+            const sectionTop = section.offsetTop - 100;
+            const sectionBottom = sectionTop + section.offsetHeight;
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                activeLink = link;
             }
         });
+
+        if (activeLink) {
+            navLinks.forEach(nav => nav.classList.remove("active"));
+            activeLink.classList.add("active");
+        }
     }
+
 
     window.addEventListener("scroll", setActiveLink);
 
     navLinks.forEach(link => {
+        const href = link.getAttribute("href");
+        if (!href || href.startsWith("/")) return;
         link.addEventListener("click", function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute("href")).scrollIntoView({
-                behavior: "smooth"
-            });
+            const targetElement = document.querySelector(href);
+            targetElement?.scrollIntoView({ behavior: "smooth" });
         });
     });
+
 
     var navbarCollapse = document.querySelector(".navbar-collapse");
 
@@ -54,112 +70,111 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Hero Starts
 const rocket = document.getElementById("rocket");
-if (!rocket) {
-    console.error('Rocket element not found.');
-}
+if (rocket) {
+    let lastScrollTop = 0;
+    let scrollTicking = false;
 
-let lastScrollTop = 0;
-let scrollTicking = false;
+    const animateRocketUp = () => {
+        const rocketTop = rocket.getBoundingClientRect().top;
+        const moveDistance = rocketTop - 200;
 
-const animateRocketUp = () => {
-    const rocketTop = rocket.getBoundingClientRect().top;
-    const moveDistance = rocketTop - 80;
+        // launchConfetti();
 
-    // launchConfetti();
-
-    gsap.to(rocket, {
-        y: -moveDistance,
-        duration: 1.5,
-        ease: "power2.inOut",
-        onComplete: scrollToNextSection
-    });
-};
-
-const animateRocketDown = () => {
-    gsap.to(rocket, { y: 0, duration: 2, ease: "power2.inOut" });
-};
-
-const scrollToNextSection = () => {
-    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-};
-
-// const launchConfetti = () => {
-//     const duration = 1500; // Duration in milliseconds
-//     const endTime = Date.now() + duration;
-
-//     const frame = () => {
-//         confetti({
-//             particleCount: 5,
-//             angle: 60,
-//             spread: 55,
-//             origin: { x: 0 }
-//         });
-
-//         confetti({
-//             particleCount: 5,
-//             angle: 120,
-//             spread: 55,
-//             origin: { x: 1 }
-//         });
-
-//         if (Date.now() < endTime) {
-//             requestAnimationFrame(frame);
-//         }
-//     };
-
-//     requestAnimationFrame(frame);
-// };
-
-rocket.addEventListener("click", animateRocketUp);
-
-window.addEventListener('scroll', () => {
-    if (!scrollTicking) {
-        window.requestAnimationFrame(() => {
-            const scrollTop = window.scrollY;
-            if (scrollTop < lastScrollTop) {
-                animateRocketDown();
-            }
-            lastScrollTop = scrollTop < 0 ? 0 : scrollTop;
-            scrollTicking = false;
+        gsap.to(rocket, {
+            y: -moveDistance,
+            duration: 1.5,
+            ease: "power2.inOut",
+            onComplete: scrollToNextSection
         });
-        scrollTicking = true;
-    }
-});
+    };
 
-let shakeTween = null;
+    const animateRocketDown = () => {
+        gsap.to(rocket, { y: 0, duration: 2, ease: "power2.inOut" });
+    };
 
-const shakeRocket = () => {
-    if (shakeTween && shakeTween.isActive()) return;
+    const scrollToNextSection = () => {
+        window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+    };
 
-    const tl = gsap.timeline();
-    tl.to(rocket, {
-        x: "-=2",
-        rotation: "-=2",
-        duration: 0.15,
-        ease: "sine.in"
-    })
-        .to(rocket, {
-            x: "+=2",
-            rotation: "+=2",
+    // const launchConfetti = () => {
+    //     const duration = 1500; // Duration in milliseconds
+    //     const endTime = Date.now() + duration;
+
+    //     const frame = () => {
+    //         confetti({
+    //             particleCount: 5,
+    //             angle: 60,
+    //             spread: 55,
+    //             origin: { x: 0 }
+    //         });
+
+    //         confetti({
+    //             particleCount: 5,
+    //             angle: 120,
+    //             spread: 55,
+    //             origin: { x: 1 }
+    //         });
+
+    //         if (Date.now() < endTime) {
+    //             requestAnimationFrame(frame);
+    //         }
+    //     };
+
+    //     requestAnimationFrame(frame);
+    // };
+
+    rocket.addEventListener("click", animateRocketUp);
+
+    window.addEventListener('scroll', () => {
+        if (!scrollTicking) {
+            window.requestAnimationFrame(() => {
+                const scrollTop = window.scrollY;
+                if (scrollTop < lastScrollTop) {
+                    animateRocketDown();
+                }
+                lastScrollTop = scrollTop < 0 ? 0 : scrollTop;
+                scrollTicking = false;
+            });
+            scrollTicking = true;
+        }
+    });
+
+    let shakeTween = null;
+
+    const shakeRocket = () => {
+        if (shakeTween && shakeTween.isActive()) return;
+
+        const tl = gsap.timeline();
+        tl.to(rocket, {
+            x: "-=2",
+            rotation: "-=2",
             duration: 0.15,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut"
-        }, 0);
+            ease: "sine.in"
+        })
+            .to(rocket, {
+                x: "+=2",
+                rotation: "+=2",
+                duration: 0.15,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            }, 0);
 
-    shakeTween = tl;
-};
+        shakeTween = tl;
+    };
 
-const stopShake = () => {
-    if (shakeTween) {
-        shakeTween.kill();
-        shakeTween = null;
-    }
-    gsap.to(rocket, { x: 0, rotation: 0, duration: 0.2 });
-};
+    const stopShake = () => {
+        if (shakeTween) {
+            shakeTween.kill();
+            shakeTween = null;
+        }
+        gsap.to(rocket, { x: 0, rotation: 0, duration: 0.2 });
+    };
 
-rocket.addEventListener('mouseenter', shakeRocket);
-rocket.addEventListener('mouseleave', stopShake);
+    rocket.addEventListener('mouseenter', shakeRocket);
+    rocket.addEventListener('mouseleave', stopShake);
+
+}
 // Hero Ends
 
 // Section Animations
@@ -226,64 +241,32 @@ gsap.utils.toArray('.service-card').forEach((card, i) => {
     });
 });
 
-// Tilt Effect
-document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const xRotation = ((y - rect.height / 2) / rect.height) * 10;
-        const yRotation = ((x - rect.width / 2) / rect.width) * 10;
-
-        gsap.to(card, {
-            rotateX: -xRotation,
-            rotateY: yRotation,
-            transformPerspective: 1000,
-            duration: 0.5,
-            ease: 'power2.out',
-            overwrite: true
-        });
-    });
-
-    card.addEventListener('mouseleave', () => {
-        gsap.to(card, {
-            rotateX: 0,
-            rotateY: 0,
-            duration: 0.3,
-            ease: 'power2.out',
-            overwrite: true,
-            onComplete: () => gsap.set(card, { clearProps: 'transform' })
-        });
-    });
-});
-
 // Service Ends
 
 // Process Starts
-gsap.from(".step-container", {
-    opacity: 0,
-    y: 50,
-    duration: 1,
-    stagger: 0.3,
-    ease: "power3.out",
-    scrollTrigger: {
-        trigger: ".process-section",
-        start: "top 30%",
-        toggleActions: "play none none reverse",
-    }
-});
+// gsap.from(".step-container", {
+//     opacity: 0,
+//     y: 50,
+//     duration: 1,
+//     stagger: 0.3,
+//     ease: "power3.out",
+//     scrollTrigger: {
+//         trigger: ".process-section",
+//         start: "top 30%",
+//         toggleActions: "play none none reverse",
+//     }
+// });
 
-gsap.from(".step-line", {
-    scaleY: 0,
-    duration: 1,
-    ease: "power2.out",
-    scrollTrigger: {
-        trigger: ".process-section",
-        start: "top 30%",
-        toggleActions: "play none none reverse",
-    }
-});
+// gsap.from(".step-line", {
+//     scaleY: 0,
+//     duration: 1,
+//     ease: "power2.out",
+//     scrollTrigger: {
+//         trigger: ".process-section",
+//         start: "top 30%",
+//         toggleActions: "play none none reverse",
+//     }
+// });
 
 // Process Ends
 
@@ -351,7 +334,7 @@ $(document).ready(function () {
         center: true,
         loop: true,
         margin: 10,
-        autoplay: true,
+        autoplay: false,
         autoplayTimeout: 5000,
         autoplayHoverPause: false,
         smartSpeed: 2000,
@@ -363,10 +346,10 @@ $(document).ready(function () {
         pullDrag: true,
         responsive: {
             0: { items: 1 },
-            480: { items: 2 },
-            768: { items: 2 },
-            991: { items: 3 },
-            1200: { items: 5 }
+            480: { items: 1 },
+            768: { items: 1 },
+            991: { items: 1 },
+            1200: { items: 2 }
         }
     });
 
@@ -424,8 +407,6 @@ $(document).ready(function () {
 
 });
 
-
-
 // Contact Starts
 gsap.from(".contact-form", {
     opacity: 0,
@@ -474,3 +455,37 @@ gsap.from(".footer-column", {
 });
 
 // Contact Ends
+
+
+function setEqualHeight() {
+    let testimonials = document.querySelectorAll(".testimonial-card");
+    let maxHeight = 0;
+
+    // Reset height to auto before calculating the tallest one
+    testimonials.forEach(el => {
+        el.style.height = "auto";
+        maxHeight = Math.max(maxHeight, el.offsetHeight);
+    });
+
+    // Apply the tallest height to all testimonials
+    testimonials.forEach(el => {
+        el.style.height = maxHeight + 20 + "px";
+    });
+}
+
+// Run when the page loads and when resized
+window.addEventListener("load", setEqualHeight);
+window.addEventListener("resize", setEqualHeight);
+
+
+VanillaTilt.init(document.querySelector(".tilt-img"), {
+    max: 15,
+    speed: 1000,
+});
+
+VanillaTilt.init(document.querySelectorAll(".service-card"), {
+    max: 5,
+    speed: 1000,
+    glare: true,
+    "max-glare": 0.2
+});
