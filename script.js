@@ -78,7 +78,6 @@ if (rocket) {
         const rocketTop = rocket.getBoundingClientRect().top;
         const moveDistance = rocketTop - 200;
 
-        // launchConfetti();
 
         gsap.to(rocket, {
             y: -moveDistance,
@@ -95,33 +94,6 @@ if (rocket) {
     const scrollToNextSection = () => {
         window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
     };
-
-    // const launchConfetti = () => {
-    //     const duration = 1500; // Duration in milliseconds
-    //     const endTime = Date.now() + duration;
-
-    //     const frame = () => {
-    //         confetti({
-    //             particleCount: 5,
-    //             angle: 60,
-    //             spread: 55,
-    //             origin: { x: 0 }
-    //         });
-
-    //         confetti({
-    //             particleCount: 5,
-    //             angle: 120,
-    //             spread: 55,
-    //             origin: { x: 1 }
-    //         });
-
-    //         if (Date.now() < endTime) {
-    //             requestAnimationFrame(frame);
-    //         }
-    //     };
-
-    //     requestAnimationFrame(frame);
-    // };
 
     rocket.addEventListener("click", animateRocketUp);
 
@@ -497,3 +469,11 @@ function openWhatsApp() {
     var url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
     window.open(url, "_blank");
 }
+
+$(document).ready(function () {
+    $('.marquee').marquee({
+        duration: 20000,
+        duplicated: true,
+        delayBeforeStart: 0
+    });
+});
