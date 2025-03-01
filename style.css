@@ -90,7 +90,7 @@ section {
     font-weight: 600;
     letter-spacing: 0.1em;
     background: rgba(255, 255, 255, 0.03);
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.5rem;
     backdrop-filter: blur(10px);
     border-radius: 2rem;
     border: 2px solid rgba(255, 255, 255);
@@ -785,7 +785,7 @@ body>* {
 }
 
 .black-layer {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.3);
     height: 352px;
     width: 352px;
     border-radius: 50%;
@@ -1503,8 +1503,8 @@ body>* {
 }
 
 .whatsapp-penguin {
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
 }
 
 .whatsapp {
@@ -1526,4 +1526,412 @@ body>* {
 
 .whatsapp img:hover {
     scale: 1.1;
+}
+
+/* Get a Quote Starts */
+
+/* Active tab style */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.tab {
+    flex: 1;
+    padding: 8px 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 25px;
+    color: #ffffff;
+    border: 1px solid transparent;
+    transition: all 0.1s ease;
+}
+
+.tab.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.tab-content {
+    display: none;
+    animation: slideIn 1s ease forwards;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* New App */
+.arrow-banner {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+    position: relative;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-right: none;
+    border-radius: 15px;
+    clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%);
+    text-align: center;
+    max-width: 600px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.arrow-banner:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-right: none;
+}
+
+.card-pricing {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+    text-align: center;
+    padding: 2rem 0.8rem;
+    height: 165px;
+    transition: all 0.3s ease;
+}
+
+.card-pricing:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.card-pricing.active {
+    border-bottom: 4px solid #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 6px 10px rgba(255, 255, 255, 0.25);
+    transform: translateY(-5px);
+}
+
+.card-pricing img {
+    width: auto;
+    height: 60px;
+    margin-bottom: 1rem;
+}
+
+/* Existing App */
+.arc-container {
+    position: relative;
+    max-width: 700px;
+    margin: 100px auto auto auto;
+    text-align: center;
+    color: #fff;
+}
+
+.arc-container h2 {
+    font-weight: 500;
+    position: absolute;
+    bottom: 40%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    font-size: 1.2rem;
+}
+
+.arc {
+    width: 100%;
+    padding: 100px;
+}
+
+.circle-group {
+    position: absolute;
+    text-align: center;
+}
+
+.circle-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    padding: 2px;
+    cursor: pointer;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.circle-icon img {
+    transition: all 0.5s ease;
+    width: 100%;
+    height: auto;
+}
+
+.circle-icon:hover img {
+    transform: scale(1.2);
+}
+
+.circle-label {
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.performance-group {
+    position: absolute;
+    top: 185px;
+    left: -10px;
+}
+
+.feature-group {
+    position: absolute;
+    top: 20px;
+    left: 65px;
+}
+
+.bug-group {
+    position: absolute;
+    top: -50px;
+    left: 295px;
+}
+
+.ui-ux-group {
+    position: absolute;
+    top: 20px;
+    right: 65px;
+}
+
+.third-party-group {
+    position: absolute;
+    top: 185px;
+    right: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .circle-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .circle-label {
+        font-size: 14px;
+    }
+
+    .performance-group {
+        top: 150px;
+        left: 0;
+    }
+
+    .feature-group {
+        top: 10px;
+        left: 30px;
+    }
+
+    .bug-group {
+        top: -40px;
+        left: 200px;
+    }
+
+    .ui-ux-group {
+        top: 10px;
+        right: 30px;
+    }
+
+    .third-party-group {
+        top: 150px;
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .circle-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .circle-label {
+        font-size: 12px;
+    }
+
+    .performance-group {
+        top: 130px;
+        left: 0;
+    }
+
+    .feature-group {
+        top: 5px;
+        left: 20px;
+    }
+
+    .bug-group {
+        top: -30px;
+        left: 150px;
+    }
+
+    .ui-ux-group {
+        top: 5px;
+        right: 20px;
+    }
+
+    .third-party-group {
+        top: 130px;
+        right: 0;
+    }
+}
+
+/* Audit */
+.audit-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    transition: transform 0.8s ease;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+}
+
+.audit-card:hover {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.25);
+    transform: rotateX(20deg);
+}
+
+.audit-card img {
+    width: 100px;
+    transition: all 0.8s ease;
+}
+
+.audit-card:hover img {
+    transform: scale(1.1);
+}
+
+
+
+/* Project Pricing Starts */
+/* Steps */
+.stepper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    gap: 78px;
+}
+
+.stepper li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border: 2px solid #d17a2e;
+    border-radius: 50%;
+    background-color: transparent;
+    color: #d17a2e;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.stepper li.active {
+    background-color: #d17a2e;
+    color: white;
+    border-color: white;
+}
+
+.stepper li.completed {
+    background-color: #d17a2e;
+    color: white;
+}
+
+.stepper li.completed::before {
+    content: "✔";
+    color: white;
+    position: absolute;
+}
+
+.stepper li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    background-color: #d17a2e;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+/* Questions */
+.questions {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.question-block {
+    display: none;
+    margin-top: 2rem;
+}
+
+.question-block.active {
+    display: block;
+}
+
+.question-block>div {
+    margin: 0.8rem 0;
+}
+
+.option-label {
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+.form-check-input:checked {
+    background-color: #f7931e;
+    border-color: #f7931e;
+}
+
+.form-check-input:focus {
+    box-shadow: none;
+}
+
+.form-check-input:not(:checked) {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: #f7931e;
+}
+
+#other-input {
+    display: none;
+    margin-top: 0.5rem;
+}
+
+#total {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Project Pricing Ends */
+
+/* Get a Quote Ends */
+
+/* Toast */
+.toast-container {
+    top: 85px;
+}
+
+.toast {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }

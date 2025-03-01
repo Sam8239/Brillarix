@@ -462,7 +462,7 @@ VanillaTilt.init(document.querySelectorAll(".service-card"), {
     "max-glare": 0.2
 });
 
-
+// Whatsapp
 function openWhatsApp() {
     var phoneNumber = "+917742962886";
     var message = "Hello! I'm interested in your software services. Can we discuss how you can help my business?";
@@ -470,6 +470,7 @@ function openWhatsApp() {
     window.open(url, "_blank");
 }
 
+// Marquee
 $(document).ready(function () {
     $('.marquee').marquee({
         duration: 20000,
@@ -477,3 +478,4 @@ $(document).ready(function () {
         delayBeforeStart: 0
     });
 });
+
