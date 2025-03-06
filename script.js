@@ -332,6 +332,39 @@ $(document).ready(function () {
         testimonials_slider.trigger('to.owl.carousel', [relativeIndex, 500, true]);
     });
 
+    // Culture Carousel
+    var team_testimonials_slider = $(".culture-carousel");
+    team_testimonials_slider.owlCarousel({
+        items: 1,
+        center: true,
+        loop: true,
+        margin: 10,
+        autoplay: false,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: false,
+        smartSpeed: 2000,
+        nav: false,
+        dots: true,
+        lazyLoad: true,
+        mouseDrag: true,
+        touchDrag: true,
+        pullDrag: true,
+        responsive: {
+            0: { items: 1 },
+            480: { items: 1 },
+            768: { items: 2 },
+            991: { items: 2 },
+            1200: { items: 3 }
+        }
+    });
+
+    team_testimonials_slider.on('click', '.owl-item', function () {
+        var index = $(this).index();
+        var carouselData = team_testimonials_slider.data('owl.carousel');
+        var relativeIndex = carouselData.relative(index);
+        team_testimonials_slider.trigger('to.owl.carousel', [relativeIndex, 500, true]);
+    });
+
     // Works Carousel
     var works_slider = $(".works-carousel");
     works_slider.owlCarousel({
@@ -430,26 +463,34 @@ gsap.from(".footer-column", {
 
 
 function setEqualHeight() {
-    let testimonials = document.querySelectorAll(".testimonial-card");
+    let testimonials = document.querySelectorAll("#testimonials .testimonial-card");
+    let teamTestimonials = document.querySelectorAll("#team .testimonial-card");
     let maxHeight = 0;
+    let teamMaxHeight = 0;
 
-    // Reset height to auto before calculating the tallest one
     testimonials.forEach(el => {
         el.style.height = "auto";
         maxHeight = Math.max(maxHeight, el.offsetHeight);
     });
 
-    // Apply the tallest height to all testimonials
     testimonials.forEach(el => {
         el.style.height = maxHeight + 20 + "px";
     });
+
+    teamTestimonials.forEach(el => {
+        el.style.height = "auto";
+        teamMaxHeight = Math.max(teamMaxHeight, el.offsetHeight);
+    });
+
+    teamTestimonials.forEach(el => {
+        el.style.height = teamMaxHeight + "px";
+    });
 }
 
-// Run when the page loads and when resized
 window.addEventListener("load", setEqualHeight);
 window.addEventListener("resize", setEqualHeight);
 
-
+// Vanilla Tilt
 VanillaTilt.init(document.querySelector(".tilt-img"), {
     max: 15,
     speed: 1000,
