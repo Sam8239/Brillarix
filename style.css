@@ -953,14 +953,6 @@ body>* {
 /* Our Culture Ends */
 
 /* Services Starts */
-
-.service-card .card-title {
-    color: white !important;
-    font-size: 1.2rem !important;
-    font-weight: 700 !important;
-    margin-bottom: 1rem !important;
-}
-
 .decoration {
     position: absolute;
     pointer-events: none;
@@ -982,13 +974,6 @@ body>* {
     position: absolute;
 }
 
-.services-content {
-    position: relative;
-    z-index: 10;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
@@ -997,6 +982,7 @@ body>* {
 }
 
 .service-card {
+    display: flex;
     background: rgba(255, 255, 255, 0.03);
     border-radius: 1.5rem;
     padding: 2.5rem;
@@ -1009,24 +995,24 @@ body>* {
     will-change: transform;
     cursor: pointer;
     overflow: hidden;
-}
-
-.service-icon-wrapper {
-    width: 4rem;
-    height: 4rem;
-    background: linear-gradient(45deg, #f97316, #fb923c);
-    border-radius: 1rem;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    transform: translateZ(20px);
+    gap: 10px;
 }
 
-.service-icon {
-    width: 2.5rem;
-    height: 2.5rem;
-    color: white;
+.service-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card .card-title {
+    color: white !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.8rem;
+}
+
+.service-icon img {
+    width: 100px;
 }
 
 .service-description {
@@ -1036,26 +1022,7 @@ body>* {
 
 .service-benefits {
     margin-top: 1rem;
-}
-
-.service-link {
-    display: inline-flex;
-    align-items: center;
-    color: white;
-    margin-top: 2rem;
-    text-decoration: none;
-    font-weight: 600;
-    transform: translateZ(15px);
-    transition: color 0.3s ease;
-}
-
-.service-link svg {
-    margin-left: 0.5rem;
-    transition: transform 0.3s ease;
-}
-
-.service-card:hover .service-link svg {
-    transform: translateX(5px);
+    text-align: left;
 }
 
 /* Services Ends */
@@ -2085,3 +2052,7 @@ body>* {
 }
 
 /* Career Ends */
+
+.js-tilt-glare-inner {
+    background-image: linear-gradient(45deg, #fff, #8a2be2, #ff63477a, #f0e68c) !important;
+}

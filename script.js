@@ -500,7 +500,7 @@ VanillaTilt.init(document.querySelectorAll(".service-card"), {
     max: 5,
     speed: 1000,
     glare: true,
-    "max-glare": 0.2
+    "max-glare": 0.2,
 });
 
 // Whatsapp
