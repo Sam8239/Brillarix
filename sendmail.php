@@ -1,9 +1,11 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST['name'];
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
     $email = $_POST['email'];
     $message = $_POST['message'];
-    $formcontent = "From: $name \nSubject: $subject \nMessage: $message";
+    $subject = "Lead From Brillarix Website";
+    $formcontent = "From: $firstName $lastName\nSubject: $subject\nMessage: $message";
     $recipient = "contact@brillarix.com";
     $mailheader = "From: $email \r\n";
 
