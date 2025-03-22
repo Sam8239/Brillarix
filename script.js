@@ -413,6 +413,40 @@ $(document).ready(function () {
 });
 
 // Contact Starts
+jQuery(document).ready(function () {
+
+    // Contact Form
+    $("#contactForm").submit(function (event) {
+        event.preventDefault();
+
+        $.ajax({
+            url: 'sendmail.php',
+            type: 'POST',
+            data: $(this).serialize(),
+            success: function (response) {
+                showToast('Success', 'Thank you! Your message has been sent.');
+                $("#contactForm").trigger("reset");
+            },
+            error: function () {
+                showToast('Error', 'There was an error sending the email.');
+            }
+        });
+    });
+
+    function showToast(title, message) {
+        $("#toastTitle").text(title);
+        $("#toastMessage").text(message);
+        var toast = new bootstrap.Toast($("#liveToast"));
+        toast.show();
+    }
+
+
+    // Preloader
+    setTimeout(function () {
+        $('#preloader').addClass('hide');
+    }, 1000);
+});
+
 gsap.from(".contact-form", {
     opacity: 0,
     y: -50,

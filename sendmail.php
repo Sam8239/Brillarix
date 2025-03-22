@@ -4,7 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $message = $_POST['message'];
     $formcontent = "From: $name \nSubject: $subject \nMessage: $message";
-    $recipient = "work@visionaryclouds.com";
+    $recipient = "contact@brillarix.com";
     $mailheader = "From: $email \r\n";
 
     if (mail($recipient, $subject, $formcontent, $mailheader)) {
