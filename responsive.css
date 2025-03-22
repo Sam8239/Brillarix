@@ -6,10 +6,15 @@
     .section-subtitle {
         line-height: 1.5;
     }
+
+    .whatsapp-widget {
+        bottom: 10px;
+        right: 0px;
+    }
 }
 
 
-@media (max-width: 991px) {
+@media (max-width: 1400px) {
     .blur-container {
         width: 100%;
         border-radius: 20px;
@@ -41,6 +46,7 @@
     .rocket-container:hover .hover-text {
         display: block;
     }
+
 }
 
 @media (max-width: 576px) {
@@ -58,6 +64,22 @@
 
     .rocket-container {
         bottom: 3%;
+    }
+
+    .tabs {
+        padding: 5px;
+    }
+
+    .tab {
+        padding: 8px 5px !important;
+    }
+
+    .stepper {
+        gap: 28px !important;
+    }
+
+    .stepper li:not(:last-child)::after {
+        width: 100%;
     }
 }
 
@@ -80,6 +102,10 @@
 
     .step-number {
         justify-self: center;
+    }
+
+    .stepper {
+        gap: 63px;
     }
 }
 

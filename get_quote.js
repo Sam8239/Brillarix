@@ -17,15 +17,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextButton = document.getElementById("nextButton");
     const backButton = document.getElementById("backButton");
     const steps = document.querySelectorAll(".stepper li");
-
-    const cardElements = document.querySelectorAll('.card-pricing');
-    const usageOptions = document.getElementsByName('usageOption');
-    const otherInput = document.getElementById('other-input');
-    const totalPriceEl = document.getElementById('total-price');
-    const total = document.getElementById('total');
+    const otherInput = document.getElementById("other-input");
+    const totalPriceEl = document.getElementById("total-price");
+    const totalEl = document.getElementById("total");
 
     let currentQuestionIndex = 0;
-    let selectedTypes = [];
+
+    // Points Range
+    function getAdditionalRange(points) {
+        if (points >= 0 && points <= 20) return "$0 - $500";
+        else if (points >= 21 && points <= 40) return "$500 - $1,500";
+        else if (points >= 41 && points <= 60) return "$1,500 - $3,000";
+        else if (points >= 61 && points <= 80) return "$3,000 - $5,000";
+        else if (points >= 81 && points <= 100) return "$5,000 - $7,000";
+        else if (points >= 101 && points <= 120) return "$7,000 - $10,000";
+        else if (points >= 121 && points <= 150) return "$10,000 - $15,000";
+        else if (points >= 151 && points <= 200) return "$15,000 - $25,000";
+        else return "Contact us for a detailed quote";
+    }
 
     function showToast(message) {
         const toastEl = document.getElementById('liveToast');
@@ -36,105 +45,65 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function updateTotalPrice() {
-        let total = 0;
+        let totalPoints = 0;
 
-        // Sum selected project types (cards)
-        selectedTypes.forEach(type => {
-            const card = document.querySelector(`.card-pricing[data-type="${type}"]`);
-            total += parseInt(card.getAttribute('data-price')) || 0;
-        });
-
-        // Primary objective (firstAnswer)
+        // 1. Primary selection
         const primary = document.querySelector('input[name="firstAnswer"]:checked');
         if (primary) {
-            total += parseInt(primary.getAttribute('data-price')) || 0;
+            totalPoints += parseInt(primary.getAttribute('data-price')) || 0;
         }
 
-        // Usage option (usageOption)
+        // 2. Usage option
         const usageSelected = document.querySelector('input[name="usageOption"]:checked');
         if (usageSelected) {
-            total += parseInt(usageSelected.getAttribute('data-price')) || 0;
+            totalPoints += parseInt(usageSelected.getAttribute('data-price')) || 0;
         }
 
-        // Additional features (checkboxes)
+        // 3. Project type
+        const projectType = document.querySelector('input[name="projectType"]:checked');
+        if (projectType) {
+            totalPoints += parseInt(projectType.getAttribute('data-price')) || 0;
+        }
+
+        // 4. Features
         const features = document.querySelectorAll('input[name="features"]:checked');
         features.forEach(feature => {
-            total += parseInt(feature.getAttribute('data-price')) || 0;
+            totalPoints += parseInt(feature.getAttribute('data-price')) || 0;
         });
 
-        // Estimated number of users (users)
-        const users = document.querySelector('input[name="users"]:checked');
-        if (users) {
-            total += parseInt(users.getAttribute('data-price')) || 0;
-        }
-
-        // Required timeline (timeline)
-        const timeline = document.querySelector('input[name="timeline"]:checked');
-        if (timeline) {
-            total += parseInt(timeline.getAttribute('data-price')) || 0;
-        }
-
-        // Post-launch support (support)
+        // 5. Support
         const support = document.querySelector('input[name="support"]:checked');
         if (support) {
-            total += parseInt(support.getAttribute('data-price')) || 0;
+            totalPoints += parseInt(support.getAttribute('data-price')) || 0;
         }
 
-        total.textContent = `Project Estimate: $${total}`;
+        // 6. Timeline
+        const timeline = document.querySelector('input[name="timeline"]:checked');
+        let timelineBase = 0;
+        if (timeline) {
+            totalPoints += parseInt(timeline.getAttribute('data-points')) || 0;
+            timelineBase = parseInt(timeline.getAttribute('data-base')) || 0;
+        }
+
+        const additionalRange = getAdditionalRange(totalPoints);
+
+        const rangeMatch = additionalRange.match(/\$(\d+(?:,\d+)?)\s*-\s*\$(\d+(?:,\d+)?)/);
+        if (rangeMatch) {
+            let min = parseInt(rangeMatch[1].replace(/,/g, ''));
+            let max = parseInt(rangeMatch[2].replace(/,/g, ''));
+            const lowerBound = timelineBase + min;
+            const upperBound = timelineBase + max;
+            totalEl.textContent = `Project Estimate: $${lowerBound.toLocaleString()} - $${upperBound.toLocaleString()}`;
+        } else {
+            totalEl.textContent = additionalRange;
+        }
     }
 
-    // Event listeners for card selection
-    cardElements.forEach(card => {
-        card.addEventListener('click', () => {
-            card.classList.toggle('active');
-            const type = card.getAttribute('data-type');
-            if (selectedTypes.includes(type)) {
-                selectedTypes = selectedTypes.filter(item => item !== type);
-            } else {
-                selectedTypes.push(type);
-            }
-            updateTotalPrice();
-        });
-    });
-
-    // Event listeners for usage options (also handling the "other" input)
-    usageOptions.forEach(option => {
-        option.addEventListener('change', () => {
-            if (option.value === 'other' && option.checked) {
-                otherInput.style.display = 'block';
-            } else if (option.checked) {
-                otherInput.style.display = 'none';
-            }
-            updateTotalPrice();
-        });
-    });
-
-    // Add change event listeners for other radio groups and checkboxes
-    const radioGroups = ["firstAnswer", "users", "timeline", "support"];
-    radioGroups.forEach(name => {
-        document.querySelectorAll(`input[name="${name}"]`).forEach(input => {
-            input.addEventListener('change', updateTotalPrice);
-        });
-    });
-    document.querySelectorAll('input[name="features"]').forEach(input => {
-        input.addEventListener('change', updateTotalPrice);
-    });
-
+    // Validation
     function validateCurrentQuestion() {
         const currentBlock = questionBlocks[currentQuestionIndex];
-        if (currentQuestionIndex === 0) {
-            if (selectedTypes.length === 0) {
-                showToast("Please select at least one project type.");
-                return false;
-            }
-            const firstAnswerRadios = currentBlock.querySelectorAll('input[name="firstAnswer"]');
-            if (firstAnswerRadios.length && ![...firstAnswerRadios].some(radio => radio.checked)) {
-                showToast("Please answer the first question.");
-                return false;
-            }
-        } else {
-            const radios = currentBlock.querySelectorAll('input[type="radio"]');
-            if (radios.length && ![...radios].some(radio => radio.checked)) {
+        if (currentBlock.querySelector('input[type="radio"]')) {
+            if (![...currentBlock.querySelectorAll('input[type="radio"]')].some(radio => radio.checked)) {
                 showToast("Please select an option for this question.");
                 return false;
             }
@@ -148,7 +117,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 return false;
             }
         }
-
         return true;
     }
 
@@ -177,20 +145,29 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    showQuestion(currentQuestionIndex);
+    const allInputs = document.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+    allInputs.forEach(input => {
+        input.addEventListener('change', updateTotalPrice);
+    });
 
+    const usageOptions = document.getElementsByName('usageOption');
+    usageOptions.forEach(option => {
+        option.addEventListener('change', () => {
+            if (option.value === 'other' && option.checked) {
+                otherInput.style.display = 'block';
+            } else if (option.checked) {
+                otherInput.style.display = 'none';
+            }
+        });
+    });
+
+    // Next button
     nextButton.addEventListener("click", function () {
         if (!validateCurrentQuestion()) return;
         updateTotalPrice();
-
         if (currentQuestionIndex < questionBlocks.length - 1) {
             currentQuestionIndex++;
-            if (currentQuestionIndex === 5) {
-                nextButton.textContent = "Calculate";
-            } else {
-                nextButton.textContent = "Next";
-            }
-
+            nextButton.textContent = currentQuestionIndex === questionBlocks.length - 1 ? "Calculate" : "Next";
             showQuestion(currentQuestionIndex);
         } else {
             totalPriceEl.classList.remove('d-none');
@@ -199,11 +176,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-
+    // Back button
     backButton.addEventListener("click", function () {
         if (currentQuestionIndex > 0) {
             currentQuestionIndex--;
             showQuestion(currentQuestionIndex);
         }
     });
+
+    showQuestion(currentQuestionIndex);
 });

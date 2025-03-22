@@ -45,7 +45,7 @@ h1 {
 body {
     overflow-x: hidden;
     margin: 0;
-    font-family: 'Open Sans';
+    font-family: 'Montserrat';
     font-size: 16px;
     color: white;
     user-select: none;
@@ -135,12 +135,10 @@ section {
 
 .section-subtitle {
     color: #94a3b8;
-    font-size: clamp(1rem, 2.5vw, 1.5rem) !important;
-    line-height: 1.4;
+    font-size: 20px;
     text-align: center;
+    font-weight: 500;
 }
-
-
 
 /* Navbar Starts */
 /* Navbar base styling */
@@ -404,6 +402,12 @@ section {
     100% {
         transform: rotate(360deg) rotateZ(0);
     }
+}
+
+.tilt-img,
+.tilt-img img {
+    border-radius: 150px;
+    cursor: pointer;
 }
 
 .hero-quote {
@@ -1610,6 +1614,7 @@ body>* {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 30px;
     padding: 10px;
+    align-items: center;
 }
 
 .tab {
@@ -1904,13 +1909,15 @@ body>* {
     align-items: center;
     justify-content: center;
     width: 35px;
+    z-index: 2;
     height: 35px;
     border: 2px solid #d17a2e;
     border-radius: 50%;
-    background-color: transparent;
+    background-color: rgb(0, 0, 0);
     color: #d17a2e;
     font-weight: bold;
     transition: 0.3s;
+
 }
 
 .stepper li.active {
@@ -2056,3 +2063,11 @@ body>* {
 .js-tilt-glare-inner {
     background-image: linear-gradient(45deg, #fff, #8a2be2, #ff63477a, #f0e68c) !important;
 }
+
+/* Calendar Starts */
+.calendar {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Calendar Ends */
