@@ -1137,7 +1137,6 @@ body>* {
 .tool-circle {
     border-radius: 50%;
     background: #222;
-    margin: 0 auto 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
