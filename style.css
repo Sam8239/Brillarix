@@ -1031,7 +1031,7 @@ body>* {
 
 /* Services Ends */
 
-/* Our Works Starts*/
+/* Our Work Starts*/
 .works-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1103,7 +1103,7 @@ body>* {
     margin-bottom: 1rem;
 }
 
-/* Our Works Ends*/
+/* Our Work Ends*/
 
 /* Tools Starts */
 .tools-grid {
