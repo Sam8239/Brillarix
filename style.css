@@ -522,7 +522,7 @@ body>* {
     width: 100%;
     overflow: hidden;
     background: linear-gradient(45deg, #fff, #8a2be2, #ff63477a, #f0e68c);
-    padding: 15px 0;
+    padding: 20px 0;
 }
 
 .marquee-container::before {
@@ -536,7 +536,7 @@ body>* {
 
 .logo-img {
     flex-shrink: 0;
-    height: 60px;
+    height: 50px;
     margin: 0 40px;
     filter: contrast(200%);
 }
@@ -1201,12 +1201,11 @@ body>* {
 }
 
 .img-card img {
-    width: 200px !important;
-    height: auto;
+    height: 50px;
     object-fit: cover;
-    margin-right: 20px;
-    background-color: rgba(255, 255, 255);
     border-radius: 10px;
+    mix-blend-mode: multiply;
+    filter: invert(1) grayscale(1) contrast(2);
 }
 
 .stars {
