@@ -81,6 +81,27 @@
     .stepper li:not(:last-child)::after {
         width: 100%;
     }
+
+    .service-card {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .decoration-4 {
+        width: 35px;
+    }
+
+    .join-our-team p {
+        font-size: 16px!important;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .section-subtitle {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 768px) {
