@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $message = $_POST['message'];
     $subject = "Lead From Brillarix Website";
-    $formcontent = "From: $firstName $lastName\nSubject: $subject\nMessage: $message";
+    $formcontent = "From: $firstName $lastName\nMessage: $message";
     $recipient = "contact@brillarix.com";
     $mailheader = "From: $email \r\n";
 
