@@ -306,7 +306,7 @@ section {
     background-position: 100% 100%;
     background-repeat: no-repeat;
     align-items: center;
-    height: 100vh;
+    min-height: 100dvh;
 }
 
 .hero-heading {
