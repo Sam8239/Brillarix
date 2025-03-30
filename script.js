@@ -433,6 +433,29 @@ jQuery(document).ready(function () {
         });
     });
 
+    // Job Form
+    $("#jobForm").submit(function (event) {
+        event.preventDefault();
+
+        var formData = new FormData(this);
+
+        $.ajax({
+            url: 'job-form.php',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                showToast('Success', 'Thank you! Your Application has been sent.');
+                $("#jobForm").trigger("reset");
+            },
+            error: function () {
+                showToast('Error', 'There was an error sending the email.');
+            }
+        });
+    });
+
+
     function showToast(title, message) {
         $("#toastTitle").text(title);
         $("#toastMessage").text(message);

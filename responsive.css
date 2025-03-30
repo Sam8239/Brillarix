@@ -11,6 +11,11 @@
         bottom: 10px;
         right: 0px;
     }
+
+    .tool-image {
+        width: 60px;
+        height: 60px;
+    }
 }
 
 
@@ -47,6 +52,15 @@
         display: block;
     }
 
+}
+
+@media (max-width: 500px) {
+    .job-footer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: 20px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -92,7 +106,7 @@
     }
 
     .join-our-team p {
-        font-size: 16px!important;
+        font-size: 16px !important;
     }
 
     .section-title {
@@ -165,13 +179,6 @@
         grid-template-columns: repeat(3, 1fr);
     }
 }
-
-@media (max-width: 768px) {
-    .tools-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 
 @media(min-width: 480.6px) and (max-width: 575.5px) {
     .owl-carousel .owl-item .card .name {
