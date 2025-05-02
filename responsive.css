@@ -16,6 +16,10 @@
         width: 60px;
         height: 60px;
     }
+
+    .hero {
+        min-height: calc(100vh - 75px);
+    }
 }
 
 
@@ -115,6 +119,10 @@
 
     .section-subtitle {
         font-size: 16px;
+    }
+
+    #preloader img {
+        width: 300px;
     }
 }
 

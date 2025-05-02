@@ -8,7 +8,7 @@
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
-    background-color: #000000 !important;
+    background-color: #00001E !important;
 }
 
 /* Custom scrollbar */
@@ -51,8 +51,8 @@ body {
     user-select: none;
     background-image: url('assets/hero-bg.jpg');
     background-attachment: fixed;
+    background-position: center;
     background-size: cover;
-
 }
 
 body::before {
@@ -349,17 +349,58 @@ section {
 /* Hero Starts */
 .hero {
     position: relative;
-    /* background-image: url('assets/backgroung_img.png'); */
-    background-size: contain;
-    background-position: 100% 100%;
-    background-repeat: no-repeat;
     align-items: center;
-    min-height: 100dvh;
+    min-height: 100vh;
 }
 
 .hero-heading {
     line-height: 1.2;
     margin-bottom: 1rem;
+}
+
+
+.hero-medal-inner img {
+    width: 70px;
+}
+
+.hero-d {
+    width: 23px;
+}
+
+.hero-medal-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.hero-medal-tag-1 {
+    background-color: #C0C0C0;
+    color: black;
+    font-size: 12px;
+    padding: 5px 8px;
+    line-height: 1;
+    border-radius: 6px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.hero-medal-tag-2 {
+    background-color: #ffe38c;
+    color: black;
+    font-size: 12px;
+    padding: 5px 8px;
+    line-height: 1;
+    border-radius: 6px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.hero-medal-text {
+    line-height: 1;
+    font-size: 17px;
+    font-weight: 600;
 }
 
 .radar {
@@ -456,49 +497,6 @@ section {
 .tilt-img img {
     border-radius: 150px;
     cursor: pointer;
-}
-
-.hero-quote {
-    text-align: center;
-    color: #fff;
-    z-index: 2;
-}
-
-.stars {
-    color: #f5a623;
-    font-size: 20px;
-    margin-bottom: 8px;
-    letter-spacing: 0.1rem;
-}
-
-.avatars {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.avatars img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid white;
-    margin-left: -10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.avatars img:hover {
-    transform: translateY(-5px);
-}
-
-.avatars img:first-child {
-    margin-left: 0;
-}
-
-.hero-quote .text {
-    font-size: 14px;
-    font-weight: 500;
-    margin-top: 5px;
 }
 
 .hero>*,

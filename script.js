@@ -573,7 +573,8 @@ $(document).ready(function () {
     $('.marquee').marquee({
         duration: 20000,
         duplicated: true,
-        delayBeforeStart: 0
+        delayBeforeStart: 0,
+        startVisible: true
     });
 });
 
