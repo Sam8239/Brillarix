@@ -20,6 +20,10 @@
     .hero {
         min-height: calc(100vh - 75px);
     }
+
+    .hero-medal-text {
+        font-size: 14px;
+    }
 }
 
 

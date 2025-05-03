@@ -264,7 +264,8 @@ section {
 }
 
 .btn::before,
-.work-card:hover a::before {
+.work-card:hover a::before,
+.bubble-certified::before {
     content: '';
     position: absolute;
     top: 0;
@@ -276,7 +277,8 @@ section {
 }
 
 .btn:hover::before,
-.owl-carousel .owl-item.active.center:hover a::before {
+.owl-carousel .owl-item.active.center:hover a::before,
+.bubble-certified:hover::before {
     left: 100%;
     transition: left 0.3s ease-in-out;
 }
@@ -388,6 +390,28 @@ section {
 
 .hero-medal-tag-2 {
     background-color: #ffe38c;
+    color: black;
+    font-size: 12px;
+    padding: 5px 8px;
+    line-height: 1;
+    border-radius: 6px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.hero-medal-tag-3 {
+    background-color: #108A00;
+    color: white;
+    font-size: 12px;
+    padding: 5px 8px;
+    line-height: 1;
+    border-radius: 6px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.hero-medal-tag-4 {
+    background-color: #F2C94B;
     color: black;
     font-size: 12px;
     padding: 5px 8px;
@@ -909,6 +933,33 @@ body>* {
 /* About Us Ends */
 
 /* Our Culture Starts */
+.bubble-certified {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    padding: 8px 20px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.bubble-certified:hover {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.bubble-certified img {
+    height: 20px;
+}
+
+.bubble-certified img:hover {
+    transform: none;
+}
+
+.bubble-certified p {
+    height: 20px;
+    line-height: 21px;
+    font-size: 14px;
+}
+
 .core-values {
     margin-bottom: 60px;
 }
@@ -982,11 +1033,22 @@ body>* {
 
 .culture-profile img {
     border-radius: 15px;
-    max-height: 250px;
-    object-position: center 20%;
+    max-height: 280px;
     width: 100%;
     object-fit: cover;
     display: block;
+}
+
+.culture-profile-1 img {
+    object-position: center 0;
+}
+
+.culture-profile-2 img {
+    object-position: center 10%;
+}
+
+.culture-profile-4 img {
+    object-position: center 0;
 }
 
 .join-our-team {
