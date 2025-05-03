@@ -399,6 +399,7 @@ $(document).ready(function () {
             this.currentTime = 0;
         });
         $(".owl-item.active.center .work-card video").each(function () {
+            this.playsInline = true;
             this.play();
         });
     });

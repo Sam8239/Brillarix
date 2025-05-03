@@ -940,6 +940,7 @@ body>* {
     padding: 8px 20px;
     cursor: pointer;
     overflow: hidden;
+    width:fit-content;
 }
 
 .bubble-certified:hover {
